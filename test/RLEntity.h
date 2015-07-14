@@ -10,7 +10,7 @@ namespace RLENTITY_NMSPC
 	class RLEntity : public RLEntityBase
 	{
 	public:
-		RLEntity(RLAgentBase* agent, RLEnvironmentBase* env) : RLEntityBase(agent, env){};
+		RLEntity(RLAgentBase* agent, RLEnvironmentBase* env) : RLEntityBase(agent, env){}; 
 		virtual void ObsrvCurrState() override;
 		virtual void SelAction() override;
 		virtual void PerfAction() override;
