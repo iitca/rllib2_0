@@ -8,6 +8,7 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		virtual bool operator==(RLActionBase&) const = 0;
+		virtual void Randomize() = 0;
 	};
 }
 

@@ -2,6 +2,8 @@
 #define RLTABLE_H
 
 #include "RLTableBase.h"
+#include <stdlib.h>
+#include <time.h>
 
 namespace RLENTITY_NMSPC
 {
@@ -16,8 +18,8 @@ namespace RLENTITY_NMSPC
 		virtual double GetMax(RLStateBase*) override;
 		//gets the best action in the state
 		virtual RLActionBase* GetBestAction(RLStateBase*) override;
-		//gets a random action in the state
-		virtual RLActionBase* GetRandAction(RLStateBase*) override;
+		//gets the vector of pairs of actions-Qs
+		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) override;
 	};
 }
 

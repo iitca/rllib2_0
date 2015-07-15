@@ -10,7 +10,10 @@ namespace RLENTITY_NMSPC
 	class RLActionSelectionSoftmax : public RLActionSelectionBase
 	{
 	public:
+		RLActionSelectionSoftmax(int);
 		virtual RLActionBase* SelectAction(RLTableBase*, RLStateBase*) override;
+	private:
+		int t;
 	};
 
 }

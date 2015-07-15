@@ -16,12 +16,13 @@ RLActionBase* RLActionSelectionEGreedy::SelectAction(RLTableBase* table, RLState
 	RLActionBase* action = nullptr;
 	srand(time(NULL));
 	double r = ((double)rand() / (double)RAND_MAX);
-	if (r < this->e){
+	if (r < this->e)
 		//choose the best action
 		return table->GetBestAction(state);
-	}else{
-		//choose a random action
-
+	else{
+		//get an action and randomize it
+		action = table->GetBestAction(state);
+		action->Randomize();
+		return action;
 	}
-	return action;
 }

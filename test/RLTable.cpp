@@ -59,9 +59,17 @@ RLActionBase* RLTable::GetBestAction(RLStateBase* state)
 	return action;
 }
 
-RLActionBase* RLTable::GetRandAction(RLStateBase* state)
-{
-	RLActionBase* action = nullptr;
 
-	return action;
+std::vector<std::pair<RLActionBase*, double>> RLTable::GetActionsQ(RLStateBase* state)
+{
+	std::vector<std::pair<RLActionBase*, double>> actionsQ;
+	std::map<RLStateActionBase*, double>::iterator it = this->table.begin();
+	for (;it != this->table.end(); it++){
+		if (it->first->GetState == state){
+			//push it to the vector
+			actionsQ.push_back(std::make_pair(it->first->GetAction(), it->second));
+		}
+	}
+
+	return actionsQ;
 }

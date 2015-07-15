@@ -2,7 +2,9 @@
 #define RLTABLEBASE_H
 
 #include "RLStateActionBase.h"
+#include <vector>
 #include <map>
+
 
 namespace RLENTITY_NMSPC
 {
@@ -19,6 +21,8 @@ namespace RLENTITY_NMSPC
 		virtual RLActionBase* GetBestAction(RLStateBase*) = 0;
 		//gets a random action in the state
 		virtual RLActionBase* GetRandAction(RLStateBase*) = 0;
+		//gets the vector of pairs of actions-Qs
+		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) = 0;
 	protected:
 		std::map<RLStateActionBase*, double> table;
 	};
