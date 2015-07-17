@@ -9,7 +9,7 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLActionSelectionEGreedy(double);
-		virtual RLActionBase* SelectAction(RLTableBase*, RLStateBase*) override;
+		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) override;
 	private:
 		double e;
 	};

@@ -7,11 +7,14 @@ using namespace RLENTITY_NMSPC;
 
 RLActionSelectionEGreedy::RLActionSelectionEGreedy(double e)
 {
-	if (e <= 1 && e >= 0)
+	if (e >= 0 && e <= 1)
 		this->e = e;
+	else
+		e = 0.5;
 }
 
-RLActionBase* RLActionSelectionEGreedy::SelectAction(RLTableBase* table, RLStateBase* state)
+RLActionBase* RLActionSelectionEGreedy::
+	SelectAction(const RLTableBase* table, RLStateBase* state)
 {
 	RLActionBase* action = nullptr;
 	srand(time(NULL));

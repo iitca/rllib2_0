@@ -2,11 +2,11 @@
 
 using namespace RLENTITY_NMSPC;
 
-double RLTable::Get(RLStateActionBase* stateAction)
+double RLTable::Get(RLStateActionBase* stateAction) const
 {
 	//check if the element exists
 	if (this->table.count(stateAction))
-		return this->table[stateAction];
+		return this->table.at(stateAction);
 	return 0.0;
 }
 
@@ -19,7 +19,7 @@ void RLTable::Set(RLStateActionBase* stateAction, double q)
 		this->table.insert(std::make_pair(stateAction, q));
 }
 
-double RLTable::GetMax(RLStateBase* state)
+double RLTable::GetMax(RLStateBase* state) const
 {
 	//get the best action
 	RLActionBase* bestAction = GetBestAction(state);
@@ -30,14 +30,14 @@ double RLTable::GetMax(RLStateBase* state)
 	return Qmax;
 }
 
-RLActionBase* RLTable::GetBestAction(RLStateBase* state)
+RLActionBase* RLTable::GetBestAction(RLStateBase* state) const
 {
 	RLActionBase* action = nullptr;
 	double Qmax = 0.0;
 	bool init = false;
 	if (this->table.empty()) return action;
 	//get the iterator
-	std::map<RLStateActionBase*, double>::iterator it = this->table.begin();
+	std::map<RLStateActionBase*, double>::const_iterator it = this ->table.begin();
 	//iterate through all table's entries
 	for (; it != table.end(); it++){
 		if (it->first->GetState() == state){
@@ -60,10 +60,10 @@ RLActionBase* RLTable::GetBestAction(RLStateBase* state)
 }
 
 
-std::vector<std::pair<RLActionBase*, double>> RLTable::GetActionsQ(RLStateBase* state)
+std::vector<std::pair<RLActionBase*, double>> RLTable::GetActionsQ(RLStateBase* state) const
 {
 	std::vector<std::pair<RLActionBase*, double>> actionsQ;
-	std::map<RLStateActionBase*, double>::iterator it = this->table.begin();
+	std::map<RLStateActionBase*, double>::const_iterator it = this->table.begin();
 	for (;it != this->table.end(); it++){
 		if (it->first->GetState() == state){
 			//push it to the vector

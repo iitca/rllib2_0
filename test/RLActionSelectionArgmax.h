@@ -8,7 +8,7 @@ namespace RLENTITY_NMSPC
 	class RLActionSelectionArgmax : public RLActionSelectionBase
 	{
 	public:
-		virtual RLActionBase* SelectAction(RLTableBase*, RLStateBase*) override;
+		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) override;
 	};
 
 }

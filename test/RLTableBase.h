@@ -12,17 +12,17 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		//gets Q of the state-action
-		virtual double Get(RLStateActionBase*) = 0;
+		virtual double Get(RLStateActionBase*) const = 0;
 		//sets Q of the state-action
 		virtual void Set(RLStateActionBase*, double) = 0;
 		//gets max Q of the best action of the state
-		virtual double GetMax(RLStateBase*) = 0;
+		virtual double GetMax(RLStateBase*) const = 0;
 		//gets the best action in the state
-		virtual RLActionBase* GetBestAction(RLStateBase*) = 0;
+		virtual RLActionBase* GetBestAction(RLStateBase*) const = 0;
 		//gets a random action in the state
-		virtual RLActionBase* GetRandAction(RLStateBase*) = 0;
+		virtual RLActionBase* GetRandAction(RLStateBase*) const = 0;
 		//gets the vector of pairs of actions-Qs
-		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) = 0;
+		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) const = 0;
 	protected:
 		std::map<RLStateActionBase*, double> table;
 	};

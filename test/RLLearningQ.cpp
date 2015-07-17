@@ -16,7 +16,7 @@ void RLLearningQ::Update(RLStateActionBase* stateActionPrev, RLStateBase* state,
 	//Qmax of the current state
 	double Qmax = this->table->GetMax(state);
 	
-	//arbitrary learning rate and discount factor
+	//arbitrary learning rate and discount factor for the time being
 	double alpha = 0.1;
 	double gamma = 0.9;
 
@@ -26,4 +26,9 @@ void RLLearningQ::Update(RLStateActionBase* stateActionPrev, RLStateBase* state,
 	//set the new value to the table
 	this->table->Set(stateActionPrev, Qnew);
 	
+}
+
+const RLTableBase* RLLearningQ::GetTable()
+{
+	return this->table;
 }

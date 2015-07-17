@@ -36,5 +36,7 @@ void RLEntity::GetReward()
 void RLEntity::AdjQ()
 {
 	std::cout << "Adjusting Q value" << std::endl;
-	rlAgent->AdjQ(rlEnv->GetStoredCurrState(), rlEnv->GetStoredNextState(), rlEnv->GetStoredReward());
+	rlAgent->AdjQ(rlEnv->GetStoredPrevState(),
+					rlEnv->GetStoredCurrState(), 
+					rlEnv->GetStoredReward());
 }

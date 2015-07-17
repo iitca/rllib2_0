@@ -13,7 +13,7 @@ RLActionSelectionSoftmax::RLActionSelectionSoftmax(int t)
 	this->t = t;
 }
 
-RLActionBase* RLActionSelectionSoftmax::SelectAction(RLTableBase* table, RLStateBase* state)
+RLActionBase* RLActionSelectionSoftmax::SelectAction(const RLTableBase* table, RLStateBase* state)
 {
 	srand(time(NULL));
 	double randP = rand() / RAND_MAX;
@@ -32,5 +32,6 @@ RLActionBase* RLActionSelectionSoftmax::SelectAction(RLTableBase* table, RLState
 		if (randP < p)
 			return actionsQ[i].first;
 	}
-
+	//if for some reasons the action is not selected, return the best action
+	return table->GetBestAction(state);
 }

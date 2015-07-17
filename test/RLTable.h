@@ -11,15 +11,15 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		//gets Q of the state-action
-		virtual double Get(RLStateActionBase*) override;
+		virtual double Get(RLStateActionBase*) const override;
 		//sets Q of the state-action
 		virtual void Set(RLStateActionBase*, double) override;
 		//gets max Q of the best action of the state
-		virtual double GetMax(RLStateBase*) override;
+		virtual double GetMax(RLStateBase*) const override;
 		//gets the best action in the state
-		virtual RLActionBase* GetBestAction(RLStateBase*) override;
+		virtual RLActionBase* GetBestAction(RLStateBase*) const override;
 		//gets the vector of pairs of actions-Qs
-		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) override;
+		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) const override; 
 	};
 }
 

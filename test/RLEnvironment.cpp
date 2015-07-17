@@ -11,9 +11,9 @@ RLStateBase* RLEnvironment::GetStoredCurrState()
 	return this->currState;
 }
 
-RLStateBase* RLEnvironment::GetStoredNextState()
+RLStateBase* RLEnvironment::GetStoredPrevState()
 {
-	return this->nextState;
+	return this->prevState;
 }
 void RLEnvironment::GetReward()
 {

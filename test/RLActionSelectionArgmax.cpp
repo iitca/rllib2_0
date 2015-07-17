@@ -2,7 +2,8 @@
 
 using namespace RLENTITY_NMSPC;
 
-RLActionBase* RLActionSelectionArgmax::SelectAction(RLTableBase* table, RLStateBase* state)
+RLActionBase* RLActionSelectionArgmax::
+	SelectAction(const RLTableBase* table, RLStateBase* state)
 {
 	return table->GetBestAction(state);
 }

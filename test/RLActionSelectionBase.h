@@ -10,7 +10,7 @@ namespace RLENTITY_NMSPC
 	class RLActionSelectionBase
 	{
 	public:
-		virtual RLActionBase* SelectAction(RLTableBase*, RLStateBase*) = 0;
+		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) = 0;
 	};
 }
 

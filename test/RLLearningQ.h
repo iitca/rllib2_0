@@ -10,6 +10,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLLearningQ(RLTableBase* tbl) : RLLearningBase(tbl){};
 		virtual void Update(RLStateActionBase*, RLStateBase*, RLRewardBase*) override;
+		virtual const RLTableBase* GetTable() override;
 	};
 }
 

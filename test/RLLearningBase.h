@@ -12,6 +12,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLLearningBase(RLTableBase* tbl) : table(tbl){};
 		virtual void Update(RLStateActionBase*, RLStateBase*, RLRewardBase*) = 0;
+		virtual const RLTableBase* GetTable() = 0;
 	protected:
 		RLTableBase* table;
 	};

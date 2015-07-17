@@ -11,7 +11,7 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLActionSelectionSoftmax(int);
-		virtual RLActionBase* SelectAction(RLTableBase*, RLStateBase*) override;
+		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) override;
 	private:
 		int t;
 	};
