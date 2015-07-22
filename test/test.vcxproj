@@ -82,6 +82,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GridWorldAction.cpp" />
+    <ClCompile Include="GridWorldEnvironment.cpp" />
+    <ClCompile Include="GridWorldReward.cpp" />
+    <ClCompile Include="GridWorldState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RLActionSelectionArgmax.cpp" />
     <ClCompile Include="RLActionSelectionEGreedy.cpp" />
@@ -89,7 +93,6 @@
     <ClCompile Include="RLAdjQFSMState.cpp" />
     <ClCompile Include="RLAgent.cpp" />
     <ClCompile Include="RLEntity.cpp" />
-    <ClCompile Include="RLEnvironment.cpp" />
     <ClCompile Include="RLFSM.cpp" />
     <ClCompile Include="RLFSMFactory.cpp" />
     <ClCompile Include="RLFSMState.cpp" />
@@ -106,6 +109,10 @@
     <ClCompile Include="RLTable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GridWorldAction.h" />
+    <ClInclude Include="GridWorldEnvironment.h" />
+    <ClInclude Include="GridWorldReward.h" />
+    <ClInclude Include="GridWorldState.h" />
     <ClInclude Include="RLActionBase.h" />
     <ClInclude Include="RLActionSelectionArgmax.h" />
     <ClInclude Include="RLActionSelectionBase.h" />

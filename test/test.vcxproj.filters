@@ -9,15 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files\RLSystem">
-      <UniqueIdentifier>{af597235-6662-4477-a5c4-6912398ed60d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\RLFSM">
-      <UniqueIdentifier>{c1ad961e-6c36-4ba1-ad09-1456c0f86bb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\RLEntity">
-      <UniqueIdentifier>{e18486c5-ab75-4bcd-97af-06081d5e4b2d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\rllib2_0">
       <UniqueIdentifier>{5c9e7429-f6a9-46fb-b622-ccf8f723e2ba}</UniqueIdentifier>
     </Filter>
@@ -33,6 +24,24 @@
     <Filter Include="Header Files\rllib2_0\RLEntity">
       <UniqueIdentifier>{10fd00f3-e244-4b96-a2cf-f085215f57d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GridWorldExperiment">
+      <UniqueIdentifier>{74122a63-389c-47ba-91f4-9402e8d3d980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rllib2_0">
+      <UniqueIdentifier>{e6b73df1-62f2-40fa-96c6-e181f068af61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rllib2_0\RLEntity">
+      <UniqueIdentifier>{e18486c5-ab75-4bcd-97af-06081d5e4b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rllib2_0\RLFSM">
+      <UniqueIdentifier>{c1ad961e-6c36-4ba1-ad09-1456c0f86bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rllib2_0\RLSystem">
+      <UniqueIdentifier>{af597235-6662-4477-a5c4-6912398ed60d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GridWorldExperiment">
+      <UniqueIdentifier>{d2f016e1-044c-4268-a4c2-8c2483ec0bf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,64 +51,73 @@
       <Filter>Header Files\rllib2_0\RLSystem</Filter>
     </ClCompile>
     <ClCompile Include="RLFSM.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLFSMFactory.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLObsrvCurrentFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLObsrvNextFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLSelActionFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLPerfActionFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLGetRewardFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLAdjQFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLFSMTransitionTable.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLSystem.cpp">
-      <Filter>Source Files\RLSystem</Filter>
+      <Filter>Source Files\rllib2_0\RLSystem</Filter>
     </ClCompile>
     <ClCompile Include="RLFSMState.cpp">
-      <Filter>Source Files\RLFSM</Filter>
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
     </ClCompile>
     <ClCompile Include="RLEntity.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLAgent.cpp">
-      <Filter>Source Files\RLEntity</Filter>
-    </ClCompile>
-    <ClCompile Include="RLEnvironment.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLTable.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLLearningQ.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLActionSelectionArgmax.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLActionSelectionEGreedy.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLActionSelectionSoftMax.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
     <ClCompile Include="RLStateActionBase.cpp">
-      <Filter>Source Files\RLEntity</Filter>
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="GridWorldAction.cpp">
+      <Filter>Source Files\GridWorldExperiment</Filter>
+    </ClCompile>
+    <ClCompile Include="GridWorldState.cpp">
+      <Filter>Source Files\GridWorldExperiment</Filter>
+    </ClCompile>
+    <ClCompile Include="GridWorldEnvironment.cpp">
+      <Filter>Source Files\GridWorldExperiment</Filter>
+    </ClCompile>
+    <ClCompile Include="GridWorldReward.cpp">
+      <Filter>Source Files\GridWorldExperiment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +210,18 @@
     </ClInclude>
     <ClInclude Include="RLActionSelectionSoftmax.h">
       <Filter>Header Files\rllib2_0\RLEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GridWorldAction.h">
+      <Filter>Header Files\GridWorldExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="GridWorldState.h">
+      <Filter>Header Files\GridWorldExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="GridWorldEnvironment.h">
+      <Filter>Header Files\GridWorldExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="GridWorldReward.h">
+      <Filter>Header Files\GridWorldExperiment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

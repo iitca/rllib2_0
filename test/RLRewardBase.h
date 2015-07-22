@@ -8,7 +8,7 @@ namespace RLENTITY_NMSPC
 	class RLRewardBase
 	{
 	public:
-		RLRewardBase(double val) : value(val){};
+		virtual void SetValue(double) = 0;
 		virtual double GetValue() = 0;
 	protected:
 		double value;
