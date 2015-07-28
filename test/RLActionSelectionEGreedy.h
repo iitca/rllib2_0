@@ -11,6 +11,7 @@ namespace RLENTITY_NMSPC
 		RLActionSelectionEGreedy(double);
 		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) override;
 	private:
+		//this value represents the probability of taking the best action
 		double e;
 	};
 

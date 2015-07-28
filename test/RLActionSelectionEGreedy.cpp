@@ -19,13 +19,17 @@ RLActionBase* RLActionSelectionEGreedy::
 	RLActionBase* action = nullptr;
 	srand(time(NULL));
 	double r = ((double)rand() / (double)RAND_MAX);
-	if (r < this->e)
-		//choose the best action
-		return table->GetBestAction(state);
-	else{
+
+	if (r >= this->e){
 		//get an action and randomize it
 		action = table->GetBestAction(state);
 		action->Randomize();
-		return action;
+	}else{
+		action = table->GetBestAction(state);
 	}
+
+	//if the action is nullptr, then the random action should be created
+	action = new RLActionBase();
+
+	return action;
 }

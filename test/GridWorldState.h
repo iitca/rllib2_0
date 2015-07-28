@@ -10,6 +10,8 @@ class GridWorldState : public RLStateBase
 public:
 	GridWorldState(int, int);
 	void SetCoordinates(int, int);
+	int GetX();
+	int GetY();
 	virtual bool operator==(RLStateBase&) const override;
 private:
 	int x;

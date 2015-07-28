@@ -20,6 +20,9 @@ namespace RLENTITY_NMSPC
 		virtual RLActionBase* GetBestAction(RLStateBase*) const override;
 		//gets the vector of pairs of actions-Qs
 		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) const override; 
+		//checks if the table is empty
+		virtual bool IsEmpty() const override;
+
 	};
 }
 

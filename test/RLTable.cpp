@@ -72,3 +72,8 @@ std::vector<std::pair<RLActionBase*, double>> RLTable::GetActionsQ(RLStateBase* 
 	}
 	return actionsQ;
 }
+
+bool RLTable::IsEmpty() const
+{
+	return this->table.empty();
+}

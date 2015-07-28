@@ -19,10 +19,10 @@ namespace RLENTITY_NMSPC
 		virtual double GetMax(RLStateBase*) const = 0;
 		//gets the best action in the state
 		virtual RLActionBase* GetBestAction(RLStateBase*) const = 0;
-		//gets a random action in the state
-		virtual RLActionBase* GetRandAction(RLStateBase*) const = 0;
 		//gets the vector of pairs of actions-Qs
 		virtual std::vector<std::pair<RLActionBase*, double>> GetActionsQ(RLStateBase*) const = 0;
+		//check if empty
+		virtual bool IsEmpty() const = 0;
 	protected:
 		std::map<RLStateActionBase*, double> table;
 	};

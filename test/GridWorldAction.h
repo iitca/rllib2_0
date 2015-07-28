@@ -17,10 +17,11 @@ enum Direction
 class GridWorldAction : RLActionBase
 {
 public:
+	GridWorldAction(int);
 	virtual bool operator==(RLActionBase&) const override;
 	virtual void Randomize() override;
-private:
-	Direction d;
+	virtual int GetValue() override;
+	
 };
 
 #endif

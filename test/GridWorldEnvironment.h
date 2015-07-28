@@ -9,7 +9,7 @@
 using namespace RLENTITY_NMSPC;
 
 
-class GridWorldEnvironment : RLEnvironmentBase
+class GridWorldEnvironment : public RLEnvironmentBase
 {
 public:
 	GridWorldEnvironment(int, int, int, int);
@@ -19,6 +19,7 @@ public:
 	virtual void GetReward() override;
 	virtual RLRewardBase* GetStoredReward() override;
 	virtual void PerformAction(RLActionBase*) override;
+	void Reset();
 private:
 	int xSize;
 	int ySize;

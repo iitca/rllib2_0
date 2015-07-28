@@ -11,7 +11,7 @@ namespace RLENTITY_NMSPC
 	class RLEnvironmentBase
 	{
 	public:
-		RLEnvironmentBase();
+		RLEnvironmentBase(){};
 		virtual void GetState() = 0;
 		virtual RLStateBase* GetStoredPrevState() = 0;
 		virtual RLStateBase* GetStoredCurrState() = 0;
