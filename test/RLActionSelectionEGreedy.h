@@ -2,6 +2,7 @@
 #define RLACTIONSELECTIONEGREEDY_H
 
 #include "RLActionSelectionBase.h"
+#include "RLDefaultAction.h"
 
 namespace RLENTITY_NMSPC
 {

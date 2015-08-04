@@ -33,5 +33,12 @@ RLActionBase* RLActionSelectionSoftmax::SelectAction(const RLTableBase* table, R
 			return actionsQ[i].first;
 	}
 	//if for some reasons the action is not selected, return the best action
-	return table->GetBestAction(state);
+	action = table->GetBestAction(state);
+
+	//if no action has been selected
+	if (action = nullptr){
+		action = new RLDefaultAction(0);
+		action->Randomize();
+	}
+	return action;
 }

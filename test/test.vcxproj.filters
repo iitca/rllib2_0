@@ -119,6 +119,9 @@
     <ClCompile Include="GridWorldReward.cpp">
       <Filter>Source Files\GridWorldExperiment</Filter>
     </ClCompile>
+    <ClCompile Include="RLDefaultAction.cpp">
+      <Filter>Source Files\rllib2_0\RLEntity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLFSMState.h">
@@ -222,6 +225,9 @@
     </ClInclude>
     <ClInclude Include="GridWorldReward.h">
       <Filter>Header Files\GridWorldExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="RLDefaultAction.h">
+      <Filter>Header Files\rllib2_0\RLEntity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

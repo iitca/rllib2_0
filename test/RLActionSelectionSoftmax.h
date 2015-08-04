@@ -2,6 +2,7 @@
 #define RLACTIONSELECTIONESOFTMAX_H
 
 #include "RLActionSelectionBase.h"
+#include "RLDefaultAction.h"
 #include "RLTableBase.h"
 #include "RLStateBase.h"
 

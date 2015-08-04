@@ -16,20 +16,23 @@ RLActionSelectionEGreedy::RLActionSelectionEGreedy(double e)
 RLActionBase* RLActionSelectionEGreedy::
 	SelectAction(const RLTableBase* table, RLStateBase* state)
 {
+	//the action to return
 	RLActionBase* action = nullptr;
 	srand(time(NULL));
 	double r = ((double)rand() / (double)RAND_MAX);
 
-	if (r >= this->e){
-		//get an action and randomize it
-		action = table->GetBestAction(state);
+	//
+	action = table->GetBestAction(state);
+	//check if to select the best action
+	if (action != nullptr &&
+			r >= this->e){
 		action->Randomize();
-	}else{
-		action = table->GetBestAction(state);
 	}
 
-	//if the action is nullptr, then the random action should be created
-	action = new RLActionBase();
-
+	//if the action has not been instantiated
+	if (action == nullptr)
+		action = new RLDefaultAction(0);
+	
+	//the action is ready
 	return action;
 }
