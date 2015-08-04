@@ -13,6 +13,7 @@ public:
 	int GetX();
 	int GetY();
 	virtual bool operator==(RLStateBase&) const override;
+	virtual bool operator<(RLStateBase&) const override;
 private:
 	int x;
 	int y;

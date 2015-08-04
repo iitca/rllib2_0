@@ -11,6 +11,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLStateActionBase(RLStateBase*, RLActionBase*);
 		virtual bool operator==(RLStateActionBase&) const;
+		virtual bool operator<(RLStateActionBase&) const;
 		virtual RLStateBase* GetState();
 		virtual RLActionBase* GetAction();
 	private:

@@ -7,19 +7,21 @@ using namespace RLENTITY_NMSPC;
 
 bool RLDefaultAction::operator==(RLActionBase& action) const
 {
-	return this->value == action.GetValue();
+	return this->value == ((RLDefaultAction&)action).GetValue();
 }
 
 void RLDefaultAction::Randomize()
 {
 	srand(time(NULL));
-	//what to return here?
-	//double r = (int)rand() /  this ->maxVal;
-	//
-	this->value = 0;
+	this -> value = (int)rand() % this->maxVal;
 }
 
 int RLDefaultAction::GetValue()
 {
 	return this->value;
+}
+
+void RLDefaultAction::SetValue(int val)
+{
+	this->value = val;
 }

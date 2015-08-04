@@ -22,6 +22,12 @@ bool GridWorldState::operator==(RLStateBase& state) const
 		(this->y == ((GridWorldState&)state).y);
 }
 
+bool GridWorldState::operator<(RLStateBase& state) const
+{
+	return (this->x <= ((GridWorldState&)state).GetX() &&
+		this->y <= ((GridWorldState&)state).GetY());
+}
+
 void GridWorldState::SetCoordinates(int x, int y)
 {
 	this->x = x;

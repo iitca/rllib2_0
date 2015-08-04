@@ -12,6 +12,7 @@ namespace RLENTITY_NMSPC
 		virtual bool operator==(RLActionBase&) const override;
 		virtual void Randomize() override;
 		virtual int GetValue() override;
+		virtual void SetValue(int) override;
 	private:
 		int maxVal;
 	protected:

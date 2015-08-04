@@ -25,7 +25,6 @@ void RLLearningQ::Update(RLStateActionBase* stateActionPrev, RLStateBase* state,
 
 	//set the new value to the table
 	this->table->Set(stateActionPrev, Qnew);
-	
 }
 
 const RLTableBase* RLLearningQ::GetTable()

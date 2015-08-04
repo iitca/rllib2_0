@@ -13,7 +13,7 @@ using namespace RLENTITY_NMSPC;
 int main()
 {
 	//create our example environment of the size  8x8 with the goal state at x=4, y=4
-	GridWorldEnvironment* gwEnv = new GridWorldEnvironment(8, 8, 4, 4);
+	GridWorldEnvironment* gwEnv = new GridWorldEnvironment(2, 2, 1, 1);
 	//create rl table
 	RLTable* rlTbl = new RLTable();
 	//create rl learning algorithm

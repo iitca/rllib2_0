@@ -30,8 +30,10 @@ RLActionBase* RLActionSelectionEGreedy::
 	}
 
 	//if the action has not been instantiated
-	if (action == nullptr)
-		action = new RLDefaultAction(0);
+	if (action == nullptr){
+		action = new RLDefaultAction(RAND_MAX);
+		action->Randomize();
+	}
 	
 	//the action is ready
 	return action;

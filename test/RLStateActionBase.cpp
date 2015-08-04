@@ -14,6 +14,11 @@ bool RLStateActionBase::operator==(RLStateActionBase& rlStateAction) const
 		this->action == rlStateAction.GetAction());
 }
 
+bool RLStateActionBase::operator<(RLStateActionBase& rlStateAction) const
+{
+	return (this->state < rlStateAction.state);
+}
+
 RLStateBase* RLStateActionBase::GetState()
 {
 	return this->state;
