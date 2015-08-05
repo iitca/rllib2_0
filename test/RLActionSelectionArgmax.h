@@ -6,11 +6,28 @@
 
 namespace RLENTITY_NMSPC
 {
-	class RLActionSelectionArgmax : public RLActionSelectionBase
+	template<typename Ty1, typename Ty2>
+	class RLActionSelectionArgmax : public RLActionSelectionBase<Ty1, Ty2>
 	{
 	public:
-		virtual RLActionBase* SelectAction(const RLTableBase*, RLStateBase*) override;
+		virtual Ty2* SelectAction(const RLTableBase<Ty1, Ty2>*, Ty1*) override;
 	};
+
+	template<typename Ty1, typename Ty2>
+	Ty2* RLActionSelectionArgmax<Ty1, Ty2>::
+		SelectAction(const RLTableBase<Ty1, Ty2>* table, Ty1* state)
+	{
+		//action to return
+		Ty2* action = nullptr;
+		//get the best available action
+		action = table->GetBestAction(state);
+		//check if the action has been fetched
+		if (action = nullptr){
+			Ty2* action = new RLDefaultAction(0);
+			action->Randomize();
+		}
+		return action;
+	}
 
 }
 

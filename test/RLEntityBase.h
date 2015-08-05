@@ -7,10 +7,11 @@
 namespace RLENTITY_NMSPC
 {
 	//the interface for the RLFSM to be connected
+	template<typename Ty1, typename Ty2>
 	class RLEntityBase
 	{
 	public:
-		RLEntityBase(RLAgentBase* agent, RLEnvironmentBase* env) : rlAgent(agent), rlEnv(env){}
+		RLEntityBase(RLAgentBase<Ty1, Ty2>* agent, RLEnvironmentBase<Ty1, Ty2>* env) : rlAgent(agent), rlEnv(env){}
 		virtual void ObsrvCurrState() = 0;
 		virtual void SelAction() = 0;
 		virtual void PerfAction() = 0;
@@ -18,8 +19,8 @@ namespace RLENTITY_NMSPC
 		virtual void GetReward() = 0;
 		virtual void AdjQ() = 0;
 	protected:
-		RLAgentBase* rlAgent;
-		RLEnvironmentBase* rlEnv;
+		RLAgentBase<Ty1, Ty2>* rlAgent;
+		RLEnvironmentBase<Ty1, Ty2>* rlEnv;
 	};
 }
 

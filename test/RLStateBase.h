@@ -8,6 +8,7 @@ namespace RLENTITY_NMSPC
 	public:
 		virtual bool operator==(RLStateBase&) const = 0;
 		virtual bool operator<(RLStateBase&) const = 0;
+		virtual bool operator<(const RLStateBase&) const = 0;
 	};
 }
 

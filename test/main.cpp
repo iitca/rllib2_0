@@ -13,25 +13,39 @@ using namespace RLENTITY_NMSPC;
 int main()
 {
 	//create our example environment of the size  8x8 with the goal state at x=4, y=4
-	GridWorldEnvironment* gwEnv = new GridWorldEnvironment(2, 2, 1, 1);
+	GridWorldEnvironment<GridWorldState, GridWorldAction>* gwEnv = 
+		new GridWorldEnvironment<GridWorldState, GridWorldAction>(2, 2, 1, 1);
+
 	//create rl table
-	RLTable* rlTbl = new RLTable();
+	RLTable<GridWorldState, GridWorldAction>* rlTbl = 
+		new RLTable<GridWorldState, GridWorldAction>();
+
 	//create rl learning algorithm
-	RLLearningQ* rlLearn = new RLLearningQ(rlTbl);
+	RLLearningQ<GridWorldState, GridWorldAction>* rlLearn = 
+		new RLLearningQ<GridWorldState, GridWorldAction>(rlTbl);
+
 	//create rl action selection
-	RLActionSelectionEGreedy* rlASel = new RLActionSelectionEGreedy(0.3);
+	RLActionSelectionEGreedy<GridWorldState, GridWorldAction>* rlASel = 
+		new RLActionSelectionEGreedy<GridWorldState, GridWorldAction>(0.3);
+
 	//create rl agent
-	RLAgent* rlAgent = new RLAgent(rlLearn, rlASel);
+	RLAgent<GridWorldState, GridWorldAction>* rlAgent = 
+		new RLAgent<GridWorldState, GridWorldAction>(rlLearn, rlASel);
+
 	//create finally the rl entity
-	RLEntity* rlent = new RLEntity(rlAgent,gwEnv);
+	RLEntity<GridWorldState, GridWorldAction>* rlent = 
+		new RLEntity<GridWorldState, GridWorldAction>(rlAgent, gwEnv);
 
 	//create RL fsm table
 	RLFSMTransitionTable* rltt = new RLFSMTransitionTable();
+
 	//create rlfsm
-	RLFSM rlfsm(rltt, rlent);
+	RLFSM<GridWorldState, GridWorldAction> rlfsm(rltt, rlent);
 
 	//create an fsm state
-	RLFSMState* state = RLFSMFactory::CreateState(RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE);
+	RLFSMState<GridWorldState, GridWorldAction>* state = 
+		RLFSMFactory<GridWorldState, GridWorldAction>::CreateState(RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE);
+
 	//feed the initial state
 	rlfsm.SetFSMState(state);
 	//go

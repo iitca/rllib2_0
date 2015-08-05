@@ -9,18 +9,19 @@
 
 namespace RLENTITY_NMSPC
 {
+	template<typename Ty1, typename Ty2>
 	class RLAgentBase
 	{
 	public:
-		RLAgentBase(RLLearningBase* learning, RLActionSelectionBase* actionSelection) 
+		RLAgentBase(RLLearningBase<Ty1, Ty2>* learning, RLActionSelectionBase<Ty1, Ty2>* actionSelection)
 			: rlLearning(learning), rlActionSelection(actionSelection), rlAction(nullptr){};
-		virtual void SelAction(RLStateBase*) = 0;
-		virtual RLActionBase* GetStoredAction() = 0;
-		virtual void AdjQ(RLStateBase*, RLStateBase*, RLRewardBase*) = 0;
+		virtual void SelAction(Ty1*) = 0;
+		virtual Ty2* GetStoredAction() = 0;
+		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) = 0;
 	protected:
-		RLLearningBase* rlLearning;
-		RLActionBase* rlAction;
-		RLActionSelectionBase* rlActionSelection;
+		RLLearningBase<Ty1, Ty2>* rlLearning;
+		Ty2* rlAction;
+		RLActionSelectionBase<Ty1, Ty2>* rlActionSelection;
 	};
 }
 

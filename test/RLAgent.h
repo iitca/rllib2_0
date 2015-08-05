@@ -9,14 +9,40 @@
 
 namespace RLENTITY_NMSPC
 {
-	class RLAgent : public RLAgentBase
+	template<typename Ty1, typename Ty2>
+	class RLAgent : public RLAgentBase<Ty1, Ty2>
 	{
 	public:
-		RLAgent(RLLearningBase* learning, RLActionSelectionBase* actionSelection) : RLAgentBase(learning, actionSelection){};
-		virtual void SelAction(RLStateBase*) override;
-		virtual RLActionBase* GetStoredAction() override;
-		virtual void AdjQ(RLStateBase*, RLStateBase*, RLRewardBase*) override;
+		RLAgent(RLLearningBase<Ty1, Ty2>* learning, RLActionSelectionBase<Ty1, Ty2>* actionSelection) : RLAgentBase(learning, actionSelection){};
+		virtual void SelAction(Ty1*) override;
+		virtual Ty2* GetStoredAction() override;
+		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) override;
 	};
+
+	template<typename Ty1, typename Ty2>
+	void RLAgent<Ty1, Ty2>::SelAction(Ty1* state)
+	{
+		//here the new action is selected using one of the action selection algorithms
+		//greedy, argmax, softmax
+		this->rlAction = this->rlActionSelection->
+			SelectAction(this->rlLearning->GetTable(), state);
+	}
+
+	template<typename Ty1, typename Ty2>
+	Ty2* RLAgent<Ty1, Ty2>::GetStoredAction()
+	{
+		return this->rlAction;
+	}
+
+	template<typename Ty1, typename Ty2>
+	void RLAgent<Ty1, Ty2>::AdjQ(Ty1* statePrev, Ty1* stateCurr, RLRewardBase* reward)
+	{
+		//create a state-action
+		RLStateActionBase<Ty1, Ty2> stateAction(*statePrev, *this->rlAction);
+		//update a table, using the obtained state-action
+		this->rlLearning->Update(stateAction, stateCurr, reward);
+	}
+
 }
 
 #endif

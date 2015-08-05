@@ -5,16 +5,17 @@
 
 namespace RLENTITY_NMSPC
 {
-	class RLEnvironment : public RLEnvironmentBase
+	template<typename Ty1, typename Ty2>
+	class RLEnvironment : public RLEnvironmentBase<Ty1, Ty2>
 	{
 	public:
 		RLEnvironment() : RLEnvironmentBase(){};
 		virtual void GetState() override;
-		virtual RLStateBase* GetStoredPrevState() override;
-		virtual RLStateBase* GetStoredCurrState() override;
+		virtual Ty1* GetStoredPrevState() override;
+		virtual Ty1* GetStoredCurrState() override;
 		virtual void GetReward() override;
 		virtual RLRewardBase* GetStoredReward() override;
-		virtual void PerformAction(RLActionBase*) override;
+		virtual void PerformAction(Ty2*) override;
 	};
 }
 

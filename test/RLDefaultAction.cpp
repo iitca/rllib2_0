@@ -10,6 +10,11 @@ bool RLDefaultAction::operator==(RLActionBase& action) const
 	return this->value == ((RLDefaultAction&)action).GetValue();
 }
 
+bool RLDefaultAction::operator<(const RLActionBase& action) const
+{
+	return (this->value < ((RLDefaultAction&)action).GetValue());
+}
+
 void RLDefaultAction::Randomize()
 {
 	srand(time(NULL));
