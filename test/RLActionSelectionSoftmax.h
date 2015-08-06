@@ -13,7 +13,7 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLActionSelectionSoftmax(int);
-		virtual Ty2* SelectAction(const RLTableBase<Ty1, Ty2>*, Ty1*) override;
+		virtual Ty2 SelectAction(const RLTableBase<Ty1, Ty2>*, Ty1*) override;
 	private:
 		int t;
 	};
@@ -27,12 +27,12 @@ namespace RLENTITY_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	Ty2* RLActionSelectionSoftmax<Ty1, Ty2>::SelectAction(const RLTableBase<Ty1, Ty2>* table, Ty1* state)
+	Ty2 RLActionSelectionSoftmax<Ty1, Ty2>::SelectAction(const RLTableBase<Ty1, Ty2>* table, Ty1* state)
 	{
 		srand(time(NULL));
 		double randP = rand() / RAND_MAX;
 		//get the Q values of all the possible actions in the state
-		Ty2* action = nullptr;
+		Ty2 action = nullptr;
 		vector<pair<Ty2*, double>> actionsQ =
 			table->GetActionsQ(state);
 		//get the sum of exponents of the rest of the actions
@@ -49,11 +49,6 @@ namespace RLENTITY_NMSPC
 		//if for some reasons the action is not selected, return the best action
 		action = table->GetBestAction(state);
 
-		//if no action has been selected
-		if (action = nullptr){
-			action = new RLDefaultAction(0);
-			action->Randomize();
-		}
 		return action;
 	}
 }

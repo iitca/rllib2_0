@@ -19,7 +19,7 @@ namespace RLENTITY_NMSPC
 		//gets max Q of the best action of the state
 		virtual double GetMax(Ty1*) const override;
 		//gets the best action in the state
-		virtual Ty2* GetBestAction(Ty1*) const override;
+		virtual Ty2 GetBestAction(Ty1*) const override;
 		//gets the vector of pairs of actions-Qs
 		virtual std::vector<std::pair<Ty2, double>> GetActionsQ(Ty1*) const override; 
 		//checks if the table is empty
@@ -50,21 +50,23 @@ namespace RLENTITY_NMSPC
 	double RLTable<Ty1, Ty2>::GetMax(Ty1* state) const
 	{
 		//get the best action
-		Ty2* bestAction = GetBestAction(state);
+		Ty2 bestAction = GetBestAction(state);
 		//create a stateaction
-		RLStateActionBase<Ty1, Ty2>* stateAction = new RLStateActionBase<Ty1, Ty2>(*state, *bestAction);
+		RLStateActionBase<Ty1, Ty2>* stateAction = new RLStateActionBase<Ty1, Ty2>(*state, bestAction);
 		//now get the Q of the best action in the state
 		double Qmax = this->Get(*stateAction);
 		return Qmax;
 	}
 
 	template<typename Ty1, typename Ty2>
-	Ty2* RLTable<Ty1, Ty2>::GetBestAction(Ty1* state) const
+	Ty2 RLTable<Ty1, Ty2>::GetBestAction(Ty1* state) const
 	{
-		Ty2* action = nullptr;
+		Ty2 action;
 		double Qmax = 0.0;
 		bool init = false;
-		if (this->table.empty()) return action;
+		//if the table is empty
+		if (this->table.empty())
+			return action;
 		//get the iterator
 		std::map<RLStateActionBase<Ty1, Ty2>, double>::const_iterator it = this->table.begin();
 
@@ -75,18 +77,19 @@ namespace RLENTITY_NMSPC
 				if (!init){
 					//initialize Qmax with the first value
 					init = true;
-					*action = it->first.GetAction();
+					action = it->first.GetAction();
 					Qmax = this->Get(it->first);
 				}
 				else{
 					//choose the max Q
 					if (this->Get(it->first) > Qmax){
 						Qmax = this->Get(it->first);
-						*action = it->first.GetAction();
+						action = it->first.GetAction();
 					}
 				}
 			}
 		}
+
 		return action;
 	}
 

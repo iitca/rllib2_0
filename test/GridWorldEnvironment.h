@@ -18,7 +18,7 @@ public:
 	virtual Ty1* GetStoredCurrState() override;
 	virtual void GetReward() override;
 	virtual RLRewardBase* GetStoredReward() override;
-	virtual void PerformAction(Ty2*) override;
+	virtual void PerformAction(Ty2) override;
 	void Reset();
 private:
 	int xSize;
@@ -88,7 +88,7 @@ RLRewardBase* GridWorldEnvironment<Ty1, Ty2>::GetStoredReward()
 }
 
 template<typename Ty1, typename Ty2>
-void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2* action)
+void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 {
 	if (this->currState == nullptr ||
 		this->prevState == nullptr)
@@ -99,15 +99,15 @@ void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2* action)
 	int x = this->currState->GetX();
 	int y = this->currState->GetY();
 	//get the action's value
-	int actionVal = action->GetValue() % Direction::DIR_NUM;
-	action->SetValue(actionVal);
+	int actionVal = action.GetValue() % Direction::DIR_NUM;
+	action.SetValue(actionVal);
 	//apply the action
 	if (actionVal == Direction::EAST){
 		if (this->currState->GetX() > 0)
 			this->currState->SetCoordinates(--x, y);
 	}
 	else if (actionVal == Direction::NORTH){
-		if (this->currState->GetY() < this->ySize)
+		if (this->currState->GetY() < this->ySize-1)
 			this->currState->SetCoordinates(x, ++y);
 	}
 	else if (actionVal == Direction::SOUTH){
@@ -115,7 +115,7 @@ void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2* action)
 			this->currState->SetCoordinates(x, --y);
 	}
 	else if (actionVal == Direction::WEST){
-		if (this->currState->GetX() < this->xSize)
+		if (this->currState->GetX() < this->xSize-1)
 			this->currState->SetCoordinates(++x, y);
 	}
 	//action applied!

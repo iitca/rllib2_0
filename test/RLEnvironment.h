@@ -15,7 +15,7 @@ namespace RLENTITY_NMSPC
 		virtual Ty1* GetStoredCurrState() override;
 		virtual void GetReward() override;
 		virtual RLRewardBase* GetStoredReward() override;
-		virtual void PerformAction(Ty2*) override;
+		virtual void PerformAction(Ty2) override;
 	};
 }
 

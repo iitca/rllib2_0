@@ -16,22 +16,19 @@ int GridWorldState::GetY()
 	return this->y;
 }
 
-bool GridWorldState::operator==(RLStateBase& state) const
+
+bool GridWorldState::operator==(const RLStateBase& state) const
 {
 	return (this->x == ((GridWorldState&)state).x) &&
 		(this->y == ((GridWorldState&)state).y);
 }
 
-bool GridWorldState::operator<(RLStateBase& state) const
-{
-	return (this->x <= ((GridWorldState&)state).GetX() &&
-		this->y <= ((GridWorldState&)state).GetY());
-}
-
 bool GridWorldState::operator<(const RLStateBase& state) const
 {
-	return (this->x <= ((GridWorldState&)state).GetX() &&
-		this->y <= ((GridWorldState&)state).GetY());
+	if (this->x < ((GridWorldState&)state).x) return true;
+	else if (this->x == ((GridWorldState&)state).x)
+		return this->y < ((GridWorldState&)state).y;
+	else return false;
 }
 
 void GridWorldState::SetCoordinates(int x, int y)

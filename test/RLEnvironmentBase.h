@@ -18,7 +18,7 @@ namespace RLENTITY_NMSPC
 		virtual Ty1* GetStoredCurrState() = 0;
 		virtual void GetReward() = 0;
 		virtual RLRewardBase* GetStoredReward() = 0;
-		virtual void PerformAction(Ty2*) = 0;
+		virtual void PerformAction(Ty2) = 0;
 	};
 }
 

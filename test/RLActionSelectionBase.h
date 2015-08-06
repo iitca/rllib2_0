@@ -11,7 +11,7 @@ namespace RLENTITY_NMSPC
 	class RLActionSelectionBase
 	{
 	public:
-		virtual Ty2* SelectAction(const RLTableBase<Ty1, Ty2>*, Ty1*) = 0;
+		virtual Ty2 SelectAction(const RLTableBase<Ty1, Ty2>*, Ty1*) = 0;
 	};
 }
 

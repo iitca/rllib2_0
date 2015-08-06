@@ -6,6 +6,7 @@
 #include <map>
 
 
+
 namespace RLENTITY_NMSPC
 {
 	//types: state, action
@@ -20,7 +21,7 @@ namespace RLENTITY_NMSPC
 		//gets max Q of the best action of the state
 		virtual double GetMax(Ty1*) const = 0;
 		//gets the best action in the state
-		virtual Ty2* GetBestAction(Ty1*) const = 0;
+		virtual Ty2 GetBestAction(Ty1*) const = 0;
 		//gets the vector of pairs of actions-Qs
 		virtual std::vector<std::pair<Ty2, double>> GetActionsQ(Ty1*) const = 0;
 		//check if empty

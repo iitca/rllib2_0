@@ -54,8 +54,10 @@ namespace RLENTITY_NMSPC
 		template<typename Ty1, typename Ty2>
 		bool RLStateActionBase<Ty1, Ty2>::operator<(const RLStateActionBase& rlStateAction) const
 		{
-			return (this->state < rlStateAction.state &&
-				this->action < rlStateAction.action);
+			if (this->state < rlStateAction.state) return true;
+			else if (this->state == rlStateAction.state)
+				return this->action < rlStateAction.action;
+			else return false;
 		}
 
 		template<typename Ty1, typename Ty2>

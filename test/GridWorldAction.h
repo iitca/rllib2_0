@@ -18,7 +18,7 @@ enum Direction
 class GridWorldAction : public RLActionBase
 {
 public:
-	GridWorldAction(){};
+	GridWorldAction() : value(0){};
 	GridWorldAction(int _val) : value(_val){};
 	virtual bool operator==(RLActionBase&) const override;
 	virtual bool operator<(const RLActionBase&) const override;

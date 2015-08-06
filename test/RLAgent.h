@@ -15,7 +15,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLAgent(RLLearningBase<Ty1, Ty2>* learning, RLActionSelectionBase<Ty1, Ty2>* actionSelection) : RLAgentBase(learning, actionSelection){};
 		virtual void SelAction(Ty1*) override;
-		virtual Ty2* GetStoredAction() override;
+		virtual Ty2 GetStoredAction() override;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) override;
 	};
 
@@ -29,7 +29,7 @@ namespace RLENTITY_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	Ty2* RLAgent<Ty1, Ty2>::GetStoredAction()
+	Ty2 RLAgent<Ty1, Ty2>::GetStoredAction()
 	{
 		return this->rlAction;
 	}
@@ -38,7 +38,7 @@ namespace RLENTITY_NMSPC
 	void RLAgent<Ty1, Ty2>::AdjQ(Ty1* statePrev, Ty1* stateCurr, RLRewardBase* reward)
 	{
 		//create a state-action
-		RLStateActionBase<Ty1, Ty2> stateAction(*statePrev, *this->rlAction);
+		RLStateActionBase<Ty1, Ty2> stateAction(*statePrev, this->rlAction);
 		//update a table, using the obtained state-action
 		this->rlLearning->Update(stateAction, stateCurr, reward);
 	}

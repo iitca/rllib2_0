@@ -3,10 +3,14 @@
 
 #include "RLFSM.h"
 #include "RLEntity.h"
+#include <type_traits>
+
+using namespace std;
 
 namespace RLSYSTEM_NMSPC
 {
 	template<typename Ty1, typename Ty2>
+	
 	class RLSystem
 	{
 	public:
