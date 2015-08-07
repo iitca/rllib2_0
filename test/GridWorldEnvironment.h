@@ -69,7 +69,7 @@ void GridWorldEnvironment<Ty1, Ty2>::GetReward()
 		this->reward = new GridWorldReward();
 
 	//check if the goal state was reached
-	if (this->currState == this->goalState){
+	if (*this->currState == *this->goalState){
 		this->reward->SetValue(10);
 		this->Reset();
 	}

@@ -13,7 +13,8 @@ public:
 	void SetCoordinates(int, int);
 	int GetX();
 	int GetY();
-	virtual bool operator==(const RLStateBase&) const override;
+	virtual bool operator==(RLStateBase&) const override;
+	virtual bool operator==(const RLStateBase&) const ;
 	virtual bool operator<(const RLStateBase&) const override;
 private:
 	int x;

@@ -17,6 +17,12 @@ int GridWorldState::GetY()
 }
 
 
+bool GridWorldState::operator==(RLStateBase& state) const
+{
+	return (this->x == ((GridWorldState&)state).x) &&
+		(this->y == ((GridWorldState&)state).y);
+}
+
 bool GridWorldState::operator==(const RLStateBase& state) const
 {
 	return (this->x == ((GridWorldState&)state).x) &&
