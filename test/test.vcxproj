@@ -103,6 +103,7 @@
     <ClCompile Include="RLObsrvCurrentFSMState.cpp" />
     <ClCompile Include="RLObsrvNextFSMState.cpp" />
     <ClCompile Include="RLPerfActionFSMState.cpp" />
+    <ClCompile Include="RLResetFSMState.cpp" />
     <ClCompile Include="RLSelActionFSMState.cpp" />
     <ClCompile Include="RLStateActionBase.cpp" />
     <ClCompile Include="RLSystem.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="RLObsrvCurrentFSMState.h" />
     <ClInclude Include="RLObsrvNextFSMState.h" />
     <ClInclude Include="RLPerfActionFSMState.h" />
+    <ClInclude Include="RLResetFSMState.h" />
     <ClInclude Include="RLRewardBase.h" />
     <ClInclude Include="RLSelActionFSMState.h" />
     <ClInclude Include="RLStateActionBase.h" />

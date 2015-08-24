@@ -122,6 +122,9 @@
     <ClCompile Include="RLDefaultAction.cpp">
       <Filter>Source Files\rllib2_0\RLEntity</Filter>
     </ClCompile>
+    <ClCompile Include="RLResetFSMState.cpp">
+      <Filter>Source Files\rllib2_0\RLFSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLFSMState.h">
@@ -228,6 +231,9 @@
     </ClInclude>
     <ClInclude Include="RLDefaultAction.h">
       <Filter>Header Files\rllib2_0\RLEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLResetFSMState.h">
+      <Filter>Header Files\rllib2_0\RLFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

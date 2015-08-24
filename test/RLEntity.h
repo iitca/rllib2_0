@@ -19,6 +19,7 @@ namespace RLENTITY_NMSPC
 		virtual void ObsrvNextState() override;
 		virtual void GetReward() override;
 		virtual void AdjQ() override;
+		virtual void Reset() override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -63,6 +64,13 @@ namespace RLENTITY_NMSPC
 		rlAgent->AdjQ(rlEnv->GetStoredPrevState(),
 			rlEnv->GetStoredCurrState(),
 			rlEnv->GetStoredReward());
+	}
+
+	template<typename Ty1, typename Ty2>
+	void RLEntity<Ty1, Ty2>::Reset()
+	{
+		std::cout << "Reseting..." << std::endl;
+		rlEnv->Reset();
 	}
 
 }

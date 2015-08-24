@@ -18,6 +18,7 @@ namespace RLENTITY_NMSPC
 		virtual void ObsrvNextState() = 0;
 		virtual void GetReward() = 0;
 		virtual void AdjQ() = 0;
+		virtual void Reset() = 0;
 	protected:
 		RLAgentBase<Ty1, Ty2>* rlAgent;
 		RLEnvironmentBase<Ty1, Ty2>* rlEnv;

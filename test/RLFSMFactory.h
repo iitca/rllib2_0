@@ -9,6 +9,7 @@
 #include "RLPerfActionFSMState.h"
 #include "RLGetRewardFSMState.h"
 #include "RLAdjQFSMState.h"
+#include "RLResetFSMState.h"
 
 
 namespace RLFSM_NMSPC
@@ -57,6 +58,11 @@ namespace RLFSM_NMSPC
 		case RLFSMStatesEnum::RL_ADJUST_Q_FSM_STATE:
 		{
 			state = new RLAdjQFSMState<Ty1, Ty2>(RLFSMStatesEnum::RL_ADJUST_Q_FSM_STATE);
+			break;
+		}
+		case RLFSMStatesEnum::RL_RESET_FSM_STATE:
+		{
+			state = new RLResetFSMState<Ty1, Ty2>(RLFSMStatesEnum::RL_RESET_FSM_STATE);
 			break;
 		}
 		default:{}

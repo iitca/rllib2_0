@@ -45,7 +45,12 @@ namespace RLFSM_NMSPC
 				//print out the state name
 				currentFSMState->Print();
 				//execute the actions for the state
+
+				//TO DO:
+				//do function should return some 'data'
 				currentFSMState->Do(this);
+				//then 'data' is fed to the transit function
+				//also a transition table should be more flexible
 				//transit to another state
 				currentFSMState->Transit(this);
 			}

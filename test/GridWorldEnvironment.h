@@ -19,7 +19,7 @@ public:
 	virtual void GetReward() override;
 	virtual RLRewardBase* GetStoredReward() override;
 	virtual void PerformAction(Ty2) override;
-	void Reset();
+	virtual void Reset() override;
 private:
 	int xSize;
 	int ySize;
@@ -69,10 +69,8 @@ void GridWorldEnvironment<Ty1, Ty2>::GetReward()
 		this->reward = new GridWorldReward();
 
 	//check if the goal state was reached
-	if (*this->currState == *this->goalState){
+	if (*this->currState == *this->goalState)
 		this->reward->SetValue(10);
-		this->Reset();
-	}
 	else
 		this->reward->SetValue(-5);
 
