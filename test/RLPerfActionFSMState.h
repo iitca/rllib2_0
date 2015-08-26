@@ -13,7 +13,7 @@ namespace RLFSM_NMSPC
 		RLPerfActionFSMState(RLFSMStatesEnum);
 		/*in this state the chosen action is performed */
 
-		virtual void Do(RLFSM<Ty1, Ty2>*) override;
+		virtual unsigned int Do(RLFSM<Ty1, Ty2>*) override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -23,9 +23,9 @@ namespace RLFSM_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	void RLPerfActionFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
+	unsigned int RLPerfActionFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
 	{
-		rlfsm->GetRLEntity()->PerfAction();
+		return rlfsm->GetRLEntity()->PerfAction();
 	}
 }
 

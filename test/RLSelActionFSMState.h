@@ -13,7 +13,7 @@ namespace RLFSM_NMSPC
 		RLSelActionFSMState(RLFSMStatesEnum);
 		/*in this state the action is selected */
 
-		virtual void Do(RLFSM<Ty1, Ty2>*) override;
+		virtual unsigned int Do(RLFSM<Ty1, Ty2>*) override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -23,9 +23,9 @@ namespace RLFSM_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	void RLSelActionFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
+	unsigned int RLSelActionFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
 	{
-		rlfsm->GetRLEntity()->SelAction();
+		return rlfsm->GetRLEntity()->SelAction();
 	}
 }
 

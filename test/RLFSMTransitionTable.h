@@ -2,6 +2,7 @@
 #define RLFSMTRANSITIONTABLE_H
 
 #include "RLFSMFactory.h"
+#include "RLFSMStateInput.h"
 #include <vector>
 
 namespace RLFSM_NMSPC
@@ -11,9 +12,9 @@ namespace RLFSM_NMSPC
 	{
 	public:
 		RLFSMTransitionTable();
-		RLFSMStatesEnum GetNextFSMState(RLFSMStatesEnum);
+		RLFSMStatesEnum GetNextFSMState(RLFSMStatesEnum, unsigned int);
 	private:
-		std::vector<RLFSMStatesEnum> trans;
+		std::vector<std::vector<RLFSMStatesEnum>> table;
 	};
 }
 

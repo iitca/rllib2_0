@@ -10,12 +10,14 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLEnvironment() : RLEnvironmentBase(){};
-		virtual void GetState() override;
+		virtual unsigned int GetState() override;
 		virtual Ty1* GetStoredPrevState() override;
 		virtual Ty1* GetStoredCurrState() override;
-		virtual void GetReward() override;
+		virtual unsigned int GetReward() override;
 		virtual RLRewardBase* GetStoredReward() override;
-		virtual void PerformAction(Ty2) override;
+		virtual unsigned int PerformAction(Ty2) override;
+		virtual unsigned int Reset() override;
+		virtual unsigned int Exit() override;
 	};
 }
 

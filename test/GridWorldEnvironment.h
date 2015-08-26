@@ -13,13 +13,14 @@ class GridWorldEnvironment : public RLEnvironmentBase<Ty1, Ty2>
 {
 public:
 	GridWorldEnvironment(int, int, int, int);
-	virtual void GetState() override;
+	virtual unsigned int GetState() override;
 	virtual Ty1* GetStoredPrevState() override;
 	virtual Ty1* GetStoredCurrState() override;
-	virtual void GetReward() override;
+	virtual unsigned int GetReward() override;
 	virtual RLRewardBase* GetStoredReward() override;
-	virtual void PerformAction(Ty2) override;
-	virtual void Reset() override;
+	virtual unsigned int PerformAction(Ty2) override;
+	virtual unsigned int Reset() override;
+	virtual unsigned int Exit() override;
 private:
 	int xSize;
 	int ySize;
@@ -43,7 +44,7 @@ GridWorldEnvironment<Ty1, Ty2>::GridWorldEnvironment(int x, int y, int xGoal, in
 }
 
 template<typename Ty1, typename Ty2>
-void GridWorldEnvironment<Ty1, Ty2>::GetState()
+unsigned int GridWorldEnvironment<Ty1, Ty2>::GetState()
 {
 
 
@@ -62,7 +63,7 @@ Ty1* GridWorldEnvironment<Ty1, Ty2>::GetStoredCurrState()
 }
 
 template<typename Ty1, typename Ty2>
-void GridWorldEnvironment<Ty1, Ty2>::GetReward()
+unsigned int GridWorldEnvironment<Ty1, Ty2>::GetReward()
 {
 	//create reward
 	if (this->reward == nullptr)
@@ -86,11 +87,11 @@ RLRewardBase* GridWorldEnvironment<Ty1, Ty2>::GetStoredReward()
 }
 
 template<typename Ty1, typename Ty2>
-void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
+unsigned int GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 {
 	if (this->currState == nullptr ||
 		this->prevState == nullptr)
-		return;
+		return 0;
 	//save the current state first
 	*(this->prevState) = *(this->currState);
 	//get current coordinates
@@ -117,13 +118,20 @@ void GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 			this->currState->SetCoordinates(++x, y);
 	}
 	//action applied!
+	return 0;
 }
 
 template<typename Ty1, typename Ty2>
-void GridWorldEnvironment<Ty1, Ty2>::Reset()
+unsigned int GridWorldEnvironment<Ty1, Ty2>::Reset()
 {
 	this->currState->SetCoordinates(0, 0);
 	this->prevState->SetCoordinates(0, 0);
+}
+
+template<typename Ty1, typename Ty2>
+unsigned int GridWorldEnvironment<Ty1, Ty2>::Exit()
+{
+	return 1;
 }
 
 #endif

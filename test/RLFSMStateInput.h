@@ -7,7 +7,7 @@ namespace RLFSM_NMSPC
 	class RLFSMStateInput
 	{
 	public:
-		void* data;
+		int input;
 	};
 }
 

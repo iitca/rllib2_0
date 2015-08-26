@@ -13,7 +13,7 @@ namespace RLFSM_NMSPC
 		RLAdjQFSMState(RLFSMStatesEnum);
 		/*in this state the Q is recalculated based on old Q, reward, previous and current state as well as
 		an action*/
-		virtual void Do(RLFSM<Ty1, Ty2>*) override;
+		virtual unsigned int Do(RLFSM<Ty1, Ty2>*) override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -23,9 +23,9 @@ namespace RLFSM_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	void RLAdjQFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
+	unsigned int RLAdjQFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
 	{
-		rlfsm->GetRLEntity()->AdjQ();
+		return rlfsm->GetRLEntity()->AdjQ();
 	}
 }
 

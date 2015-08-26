@@ -47,12 +47,12 @@ namespace RLFSM_NMSPC
 				//execute the actions for the state
 
 				//TO DO:
-				//do function should return some 'data'
-				currentFSMState->Do(this);
+				//do function should return input to the next state
+				unsigned int inp = currentFSMState->Do(this);
 				//then 'data' is fed to the transit function
 				//also a transition table should be more flexible
 				//transit to another state
-				currentFSMState->Transit(this);
+				currentFSMState->Transit(this, inp);
 			}
 		}
 	}

@@ -13,13 +13,14 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLEnvironmentBase(){};
-		virtual void GetState() = 0;
+		virtual unsigned int GetState() = 0;
 		virtual Ty1* GetStoredPrevState() = 0;
 		virtual Ty1* GetStoredCurrState() = 0;
-		virtual void GetReward() = 0;
+		virtual unsigned int GetReward() = 0;
 		virtual RLRewardBase* GetStoredReward() = 0;
-		virtual void PerformAction(Ty2) = 0;
-		virtual void Reset() = 0;
+		virtual unsigned int PerformAction(Ty2) = 0;
+		virtual unsigned int Reset() = 0;
+		virtual unsigned int Exit() = 0;
 	};
 }
 
