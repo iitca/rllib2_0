@@ -6,6 +6,7 @@
 #include "RLActionBase.h"
 #include "RLStateActionBase.h"
 #include "RLActionSelectionBase.h"
+#include "RLTableBase.h"
 
 namespace RLENTITY_NMSPC
 {
@@ -17,6 +18,7 @@ namespace RLENTITY_NMSPC
 		virtual unsigned int SelAction(Ty1*) override;
 		virtual Ty2 GetStoredAction() override;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) override;
+		virtual const RLTableBase<Ty1, Ty2>* GetTable() override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -43,6 +45,12 @@ namespace RLENTITY_NMSPC
 		RLStateActionBase<Ty1, Ty2> stateAction(*statePrev, this->rlAction);
 		//update a table, using the obtained state-action
 		this->rlLearning->Update(stateAction, stateCurr, reward);
+	}
+
+	template<typename Ty1, typename Ty2>
+	const RLTableBase<Ty1, Ty2>* RLAgent<Ty1, Ty2>::GetTable()
+	{
+		return this->rlLearning->GetTable();
 	}
 
 }

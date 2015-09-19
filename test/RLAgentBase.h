@@ -18,6 +18,7 @@ namespace RLENTITY_NMSPC
 		virtual unsigned int SelAction(Ty1*) = 0;
 		virtual Ty2 GetStoredAction() = 0;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) = 0;
+		virtual const RLTableBase<Ty1, Ty2>* GetTable() = 0;
 	protected:
 		RLLearningBase<Ty1, Ty2>* rlLearning;
 		Ty2 rlAction;

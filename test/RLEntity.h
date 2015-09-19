@@ -73,6 +73,9 @@ namespace RLENTITY_NMSPC
 	unsigned int RLEntity<Ty1, Ty2>::Reset()
 	{
 		std::cout << "Reseting....." << std::endl;
+		//store the gained experience in the file
+		this->rlAgent->GetTable();
+		//reset the experiment
 		return rlEnv->Reset();
 	}
 

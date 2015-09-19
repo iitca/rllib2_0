@@ -115,8 +115,8 @@ unsigned int GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 	action.SetValue(actionVal);
 	//apply the action
 	if (actionVal == Direction::EAST){
-		if (this->currState->GetX() > 0)
-			this->currState->SetCoordinates(--x, y);
+		if (this->currState->GetX() < this->xSize - 1)
+			this->currState->SetCoordinates(++x, y);
 	}
 	else if (actionVal == Direction::NORTH){
 		if (this->currState->GetY() < this->ySize-1)
@@ -127,8 +127,8 @@ unsigned int GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 			this->currState->SetCoordinates(x, --y);
 	}
 	else if (actionVal == Direction::WEST){
-		if (this->currState->GetX() < this->xSize-1)
-			this->currState->SetCoordinates(++x, y);
+		if (this->currState->GetX() > 0)
+			this->currState->SetCoordinates(--x, y);
 	}
 
 	//the return value is used as an value to select the next fsm state
