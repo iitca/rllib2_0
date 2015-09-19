@@ -12,9 +12,9 @@ using namespace RLENTITY_NMSPC;
 
 int main()
 {
-	//create our example environment of the size  8x8 with the goal state at x=4, y=4
+	//create our example environment of the size  2x2 with the goal state at x=1, y=1
 	GridWorldEnvironment<GridWorldState, GridWorldAction>* gwEnv = 
-		new GridWorldEnvironment<GridWorldState, GridWorldAction>(2, 2, 1, 1);
+		new GridWorldEnvironment<GridWorldState, GridWorldAction>(2, 2, 1, 1, 10000);
 
 	//create rl table
 	RLTable<GridWorldState, GridWorldAction>* rlTbl = 
@@ -24,9 +24,9 @@ int main()
 	RLLearningQ<GridWorldState, GridWorldAction>* rlLearn = 
 		new RLLearningQ<GridWorldState, GridWorldAction>(rlTbl);
 
-	//create rl action selection
+	//create rl action selection (e = 0.0 meaning that the action is always selected randomly)
 	RLActionSelectionEGreedy<GridWorldState, GridWorldAction>* rlASel = 
-		new RLActionSelectionEGreedy<GridWorldState, GridWorldAction>(0.3);
+		new RLActionSelectionEGreedy<GridWorldState, GridWorldAction>(0.0);
 
 	//create rl agent
 	RLAgent<GridWorldState, GridWorldAction>* rlAgent = 

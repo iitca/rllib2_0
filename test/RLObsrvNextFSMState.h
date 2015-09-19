@@ -26,6 +26,7 @@ namespace RLFSM_NMSPC
 	template<typename Ty1, typename Ty2>
 	unsigned int RLObsrvNextFSMState<Ty1, Ty2>::Do(RLFSM<Ty1, Ty2>* rlfsm)
 	{
+		//returns a value to choose the next fsm state
 		return rlfsm->GetRLEntity()->ObsrvNextState();
 	}
 }

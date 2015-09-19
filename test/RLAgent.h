@@ -14,18 +14,20 @@ namespace RLENTITY_NMSPC
 	{
 	public:
 		RLAgent(RLLearningBase<Ty1, Ty2>* learning, RLActionSelectionBase<Ty1, Ty2>* actionSelection) : RLAgentBase(learning, actionSelection){};
-		virtual void SelAction(Ty1*) override;
+		virtual unsigned int SelAction(Ty1*) override;
 		virtual Ty2 GetStoredAction() override;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) override;
 	};
 
 	template<typename Ty1, typename Ty2>
-	void RLAgent<Ty1, Ty2>::SelAction(Ty1* state)
+	unsigned int RLAgent<Ty1, Ty2>::SelAction(Ty1* state)
 	{
 		//here the new action is selected using one of the action selection algorithms
 		//greedy, argmax, softmax
 		this->rlAction = this->rlActionSelection->
 			SelectAction(this->rlLearning->GetTable(), state);
+		//the returned value will be used to select the next state
+		return 0;
 	}
 
 	template<typename Ty1, typename Ty2>

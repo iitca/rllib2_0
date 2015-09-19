@@ -5,15 +5,24 @@ using namespace RLFSM_NMSPC;
 
 RLFSMTransitionTable::RLFSMTransitionTable()
 {
-	std::vector<int> obsrvCurrStateTransitions = {RLFSMStatesEnum::RL_SEL_ACTION_FSM_STATE};
-	std::vector<int> selActionStateTransitions = {RLFSMStatesEnum::RL_PERF_ACTION_FSM_STATE};
-	std::vector<int> perfActionStateTransitions = {RLFSMStatesEnum::RL_OBSRV_NEXT_FSM_STATE};
-	std::vector<int> obsrvNextStateTransitions = {RLFSMStatesEnum::RL_GET_REWARD_FSM_STATE };
-	std::vector<int> getRewardStateTransitions = {RLFSMStatesEnum::RL_ADJUST_Q_FSM_STATE };
-	std::vector<int> adjustQStateTransitions = {RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE,
+	std::vector<RLFSMStatesEnum> obsrvCurrStateTransitions = {RLFSMStatesEnum::RL_SEL_ACTION_FSM_STATE};
+	std::vector<RLFSMStatesEnum> selActionStateTransitions = { RLFSMStatesEnum::RL_PERF_ACTION_FSM_STATE };
+	std::vector<RLFSMStatesEnum> perfActionStateTransitions = { RLFSMStatesEnum::RL_OBSRV_NEXT_FSM_STATE };
+	std::vector<RLFSMStatesEnum> obsrvNextStateTransitions = { RLFSMStatesEnum::RL_GET_REWARD_FSM_STATE };
+	std::vector<RLFSMStatesEnum> getRewardStateTransitions = { RLFSMStatesEnum::RL_ADJUST_Q_FSM_STATE };
+	std::vector<RLFSMStatesEnum> adjustQStateTransitions = { RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE,
 													RLFSMStatesEnum::RL_RESET_FSM_STATE };
-	std::vector<int> resetStateTransitions = { RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE,
+	std::vector<RLFSMStatesEnum> resetStateTransitions = { RLFSMStatesEnum::RL_OBSRV_CURR_FSM_STATE,
 													RLFSMStatesEnum::RL_EXIT_FSM_STATE };
+
+	this->table.push_back(obsrvCurrStateTransitions);
+	this->table.push_back(selActionStateTransitions);
+	this->table.push_back(perfActionStateTransitions);
+	this->table.push_back(obsrvNextStateTransitions);
+	this->table.push_back(getRewardStateTransitions);
+	this->table.push_back(adjustQStateTransitions);
+	this->table.push_back(resetStateTransitions);
+
 
 }
 
@@ -22,8 +31,8 @@ RLFSMStatesEnum RLFSMTransitionTable::GetNextFSMState(RLFSMStatesEnum state, uns
 	//retrieve the next 
 	//state from the table 
 	//if it exists
-	if (this->table.size() < state){
-		if (this->table[state].size() < input){
+	if (state < this->table.size()){
+		if (input < this->table[state].size()){
 			return this->table[state][input];
 		}
 	}

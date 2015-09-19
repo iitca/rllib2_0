@@ -235,5 +235,8 @@
     <ClInclude Include="RLResetFSMState.h">
       <Filter>Header Files\rllib2_0\RLFSM</Filter>
     </ClInclude>
+    <ClInclude Include="RLExitFSMState.h">
+      <Filter>Header Files\rllib2_0\RLFSM</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

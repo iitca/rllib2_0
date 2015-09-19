@@ -27,35 +27,35 @@ namespace RLENTITY_NMSPC
 	unsigned int RLEntity<Ty1, Ty2>::ObsrvCurrState()
 	{
 		std::cout << "Observing the current state" << std::endl;
-		rlEnv->GetState();
+		return rlEnv->GetState();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::SelAction()
 	{
 		std::cout << "Selecting the action" << std::endl;
-		rlAgent->SelAction(rlEnv->GetStoredCurrState());
+		return rlAgent->SelAction(rlEnv->GetStoredCurrState());
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::PerfAction()
 	{
 		std::cout << "Performing the action" << std::endl;
-		rlEnv->PerformAction(rlAgent->GetStoredAction());
+		return rlEnv->PerformAction(rlAgent->GetStoredAction());
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::ObsrvNextState()
 	{
 		std::cout << "Observing the next state" << std::endl;
-		rlEnv->GetState();
+		return rlEnv->GetState();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::GetReward()
 	{
 		std::cout << "Getting the reward" << std::endl;
-		rlEnv->GetReward();
+		return rlEnv->GetReward();
 	}
 
 	template<typename Ty1, typename Ty2>
@@ -65,20 +65,22 @@ namespace RLENTITY_NMSPC
 		rlAgent->AdjQ(rlEnv->GetStoredPrevState(),
 			rlEnv->GetStoredCurrState(),
 			rlEnv->GetStoredReward());
+		//the returned value will be used to select the next state
+		return (unsigned int)rlEnv->IsInGoalState();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::Reset()
 	{
 		std::cout << "Reseting....." << std::endl;
-		rlEnv->Reset();
+		return rlEnv->Reset();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::Exit()
 	{
 		std::cout << "Exit" << std::endl;
-		return 1;
+		return rlEnv->Exit();
 	}
 
 }

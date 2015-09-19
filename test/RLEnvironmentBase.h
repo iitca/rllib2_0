@@ -21,6 +21,7 @@ namespace RLENTITY_NMSPC
 		virtual unsigned int PerformAction(Ty2) = 0;
 		virtual unsigned int Reset() = 0;
 		virtual unsigned int Exit() = 0;
+		virtual bool IsInGoalState() = 0;
 	};
 }
 

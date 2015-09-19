@@ -15,7 +15,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLAgentBase(RLLearningBase<Ty1, Ty2>* learning, RLActionSelectionBase<Ty1, Ty2>* actionSelection)
 			: rlLearning(learning), rlActionSelection(actionSelection){};
-		virtual void SelAction(Ty1*) = 0;
+		virtual unsigned int SelAction(Ty1*) = 0;
 		virtual Ty2 GetStoredAction() = 0;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) = 0;
 	protected:

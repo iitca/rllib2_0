@@ -7,6 +7,7 @@
 
 namespace RLFSM_NMSPC
 {
+
 	/*this class represents a transition sequence*/
 	class RLFSMTransitionTable
 	{

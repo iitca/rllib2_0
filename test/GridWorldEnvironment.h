@@ -12,7 +12,7 @@ template<typename Ty1, typename Ty2>
 class GridWorldEnvironment : public RLEnvironmentBase<Ty1, Ty2>
 {
 public:
-	GridWorldEnvironment(int, int, int, int);
+	GridWorldEnvironment(int, int, int, int, unsigned int);
 	virtual unsigned int GetState() override;
 	virtual Ty1* GetStoredPrevState() override;
 	virtual Ty1* GetStoredCurrState() override;
@@ -21,9 +21,13 @@ public:
 	virtual unsigned int PerformAction(Ty2) override;
 	virtual unsigned int Reset() override;
 	virtual unsigned int Exit() override;
+	virtual bool IsInGoalState() override;
 private:
 	int xSize;
 	int ySize;
+	unsigned int episodesNum;
+	unsigned int episodesCounter;
+	bool goalStateReached;
 	Ty1* goalState;
 	Ty1* currState;
 	Ty1* prevState;
@@ -31,7 +35,7 @@ private:
 };
 
 template<typename Ty1, typename Ty2>
-GridWorldEnvironment<Ty1, Ty2>::GridWorldEnvironment(int x, int y, int xGoal, int yGoal)
+GridWorldEnvironment<Ty1, Ty2>::GridWorldEnvironment(int x, int y, int xGoal, int yGoal, unsigned int episodesNum)
 {
 	this->xSize = x;
 	this->ySize = y;
@@ -41,13 +45,18 @@ GridWorldEnvironment<Ty1, Ty2>::GridWorldEnvironment(int x, int y, int xGoal, in
 	this->prevState = new GridWorldState(0, 0);
 	//reward is nullptr
 	this->reward = nullptr;
+	//number of episodes
+	this->episodesNum = episodesNum;
+	this->episodesCounter = 0;
+	//the goal state
+	this->goalStateReached = false;
 }
 
 template<typename Ty1, typename Ty2>
 unsigned int GridWorldEnvironment<Ty1, Ty2>::GetState()
 {
-
-
+	//the return value will be used as an input to choose the next fsm state
+	return 0;
 }
 
 template<typename Ty1, typename Ty2>
@@ -70,10 +79,14 @@ unsigned int GridWorldEnvironment<Ty1, Ty2>::GetReward()
 		this->reward = new GridWorldReward();
 
 	//check if the goal state was reached
-	if (*this->currState == *this->goalState)
+	if (*this->currState == *this->goalState){
 		this->reward->SetValue(10);
-	else
+		this->goalStateReached = true;
+	}else
 		this->reward->SetValue(-5);
+
+	//the return value will be used to select the next fsm state
+	return 0;
 
 }
 
@@ -117,7 +130,8 @@ unsigned int GridWorldEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 		if (this->currState->GetX() < this->xSize-1)
 			this->currState->SetCoordinates(++x, y);
 	}
-	//action applied!
+
+	//the return value is used as an value to select the next fsm state
 	return 0;
 }
 
@@ -126,12 +140,31 @@ unsigned int GridWorldEnvironment<Ty1, Ty2>::Reset()
 {
 	this->currState->SetCoordinates(0, 0);
 	this->prevState->SetCoordinates(0, 0);
+	//from this state we either go to EXIT_STATE or to the OBSRV_CURR_STATE
+	//check if the desired number of episodes passed
+	this->goalStateReached = false;
+	this->episodesCounter++;
+	if (this->episodesCounter > this->episodesNum){
+		//here we exit
+		this->episodesCounter = 0;
+		return 1;
+	}else
+		//here we proceed to the OBSRV_CURR_STATE
+		return 0;
+	
 }
 
 template<typename Ty1, typename Ty2>
 unsigned int GridWorldEnvironment<Ty1, Ty2>::Exit()
 {
-	return 1;
+	//here we might want to store the gained experience
+	std::exit(0);
+}
+
+template<typename Ty1, typename Ty2>
+bool GridWorldEnvironment < Ty1, Ty2 >::IsInGoalState()
+{
+	return this->goalStateReached;
 }
 
 #endif

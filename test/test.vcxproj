@@ -128,6 +128,7 @@
     <ClInclude Include="RLEntityBase.h" />
     <ClInclude Include="RLEnvironment.h" />
     <ClInclude Include="RLEnvironmentBase.h" />
+    <ClInclude Include="RLExitFSMState.h" />
     <ClInclude Include="RLFSM.h" />
     <ClInclude Include="RLFSMFactory.h" />
     <ClInclude Include="RLFSMState.h" />
