@@ -26,6 +26,8 @@ namespace RLENTITY_NMSPC
 		virtual std::vector<std::pair<Ty2, double>> GetActionsQ(Ty1*) const = 0;
 		//check if empty
 		virtual bool IsEmpty() const = 0;
+		//returns the table
+		virtual std::map<RLStateActionBase<Ty1, Ty2>, double> GetTable() = 0;
 	protected:
 		std::map<RLStateActionBase<Ty1, Ty2>, double> table;
 	};

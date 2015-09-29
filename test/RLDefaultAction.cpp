@@ -21,7 +21,7 @@ void RLDefaultAction::Randomize()
 	this -> value = (int)rand() % this->maxVal;
 }
 
-int RLDefaultAction::GetValue()
+int RLDefaultAction::GetValue() const
 {
 	return this->value;
 }

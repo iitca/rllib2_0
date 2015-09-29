@@ -14,7 +14,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLLearningBase(RLTableBase<Ty1, Ty2>* tbl) : table(tbl){};
 		virtual void Update(RLStateActionBase<Ty1, Ty2>, Ty1*, RLRewardBase*) = 0;
-		virtual const RLTableBase<Ty1, Ty2>* GetTable() = 0;
+		virtual RLTableBase<Ty1, Ty2>* GetTable() = 0;
 	protected:
 		RLTableBase<Ty1, Ty2>* table;
 	};

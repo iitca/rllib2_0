@@ -1,6 +1,9 @@
 #ifndef RLSTATEBASE_H
 #define RLSTATEBASE_H
 
+#include <iostream>
+#include <string>
+
 namespace RLENTITY_NMSPC
 {
 	class RLStateBase

@@ -11,7 +11,7 @@ namespace RLENTITY_NMSPC
 	public:
 		RLLearningQ(RLTableBase<Ty1, Ty2>* tbl) : RLLearningBase(tbl){};
 		virtual void Update(RLStateActionBase<Ty1, Ty2>, Ty1*, RLRewardBase*) override;
-		virtual const RLTableBase<Ty1, Ty2>* GetTable() override;
+		virtual RLTableBase<Ty1, Ty2>* GetTable() override;
 	};
 
 
@@ -31,7 +31,7 @@ namespace RLENTITY_NMSPC
 		double Qmax = this->table->GetMax(state);
 
 		//arbitrary learning rate and discount factor for the time being
-		double alpha = 0.1;
+		double alpha = 0.5;
 		double gamma = 0.9;
 
 		//new Q
@@ -42,7 +42,7 @@ namespace RLENTITY_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	const RLTableBase<Ty1, Ty2>* RLLearningQ<Ty1, Ty2>::GetTable()
+	RLTableBase<Ty1, Ty2>* RLLearningQ<Ty1, Ty2>::GetTable()
 	{
 		return this->table;
 	}

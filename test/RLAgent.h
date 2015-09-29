@@ -18,7 +18,8 @@ namespace RLENTITY_NMSPC
 		virtual unsigned int SelAction(Ty1*) override;
 		virtual Ty2 GetStoredAction() override;
 		virtual void AdjQ(Ty1*, Ty1*, RLRewardBase*) override;
-		virtual const RLTableBase<Ty1, Ty2>* GetTable() override;
+		virtual std::map<RLStateActionBase<Ty1, Ty2>, double> GetTable() override;
+		virtual void StoreToTable(RLStateActionBase<Ty1, Ty2>, double) override;
 	};
 
 	template<typename Ty1, typename Ty2>
@@ -48,9 +49,15 @@ namespace RLENTITY_NMSPC
 	}
 
 	template<typename Ty1, typename Ty2>
-	const RLTableBase<Ty1, Ty2>* RLAgent<Ty1, Ty2>::GetTable()
+	std::map<RLStateActionBase<Ty1, Ty2>, double> RLAgent<Ty1, Ty2>::GetTable()
 	{
-		return this->rlLearning->GetTable();
+		return this->rlLearning->GetTable()->GetTable();
+	}
+
+	template<typename Ty1, typename Ty2>
+	void RLAgent<Ty1, Ty2>::StoreToTable(RLStateActionBase<Ty1, Ty2> stateAction, double Q)
+	{
+		this->rlLearning->GetTable()->Set(stateAction, Q);
 	}
 
 }

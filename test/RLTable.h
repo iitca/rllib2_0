@@ -4,6 +4,7 @@
 #include "RLTableBase.h"
 #include <stdlib.h>
 #include <time.h>
+#include <fstream>
 
 namespace RLENTITY_NMSPC
 {
@@ -24,6 +25,8 @@ namespace RLENTITY_NMSPC
 		virtual std::vector<std::pair<Ty2, double>> GetActionsQ(Ty1*) const override; 
 		//checks if the table is empty
 		virtual bool IsEmpty() const override;
+		//returns the table
+		virtual std::map<RLStateActionBase<Ty1, Ty2>, double> GetTable() override;
 
 	};
 
@@ -43,6 +46,7 @@ namespace RLENTITY_NMSPC
 		if (this->table.count(stateAction))
 			this->table[stateAction] = q;
 		else
+			//there is a new value
 			this->table.insert(std::make_pair(stateAction, q));
 	}
 
@@ -111,6 +115,12 @@ namespace RLENTITY_NMSPC
 	bool RLTable<Ty1, Ty2>::IsEmpty() const
 	{
 		return this->table.empty();
+	}
+
+	template<typename Ty1, typename Ty2>
+	std::map<RLStateActionBase<Ty1, Ty2>, double> RLTable<Ty1, Ty2>::GetTable()
+	{
+		return this->table;
 	}
 
 }
