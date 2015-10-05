@@ -31,7 +31,7 @@ namespace RLENTITY_NMSPC
 		double Qmax = this->table->GetMax(state);
 
 		//arbitrary learning rate and discount factor for the time being
-		double alpha = 0.5;
+		double alpha = 0.9;
 		double gamma = 0.9;
 
 		//new Q

@@ -17,7 +17,7 @@ bool RLDefaultAction::operator<(const RLActionBase& action) const
 
 void RLDefaultAction::Randomize()
 {
-	srand(time(NULL));
+	//srand(time(NULL));
 	this -> value = (int)rand() % this->maxVal;
 }
 

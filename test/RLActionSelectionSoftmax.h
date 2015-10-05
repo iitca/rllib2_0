@@ -29,7 +29,7 @@ namespace RLENTITY_NMSPC
 	template<typename Ty1, typename Ty2>
 	Ty2 RLActionSelectionSoftmax<Ty1, Ty2>::SelectAction(const RLTableBase<Ty1, Ty2>* table, Ty1* state)
 	{
-		srand(time(NULL));
+		//srand(time(NULL));
 		double randP = rand() / RAND_MAX;
 		//get the Q values of all the possible actions in the state
 		Ty2 action = nullptr;

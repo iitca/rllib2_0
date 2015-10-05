@@ -32,7 +32,7 @@ namespace RLENTITY_NMSPC
 	{
 		//the action to return
 		Ty2 action;
-		srand(time(NULL));
+		//srand(time(NULL));
 		double r = ((double)rand() / (double)RAND_MAX);
 
 		//

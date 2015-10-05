@@ -1,5 +1,6 @@
 #include "GridWorldAction.h"
 #include <stdlib.h>
+#include <time.h>
 
 GridWorldAction::GridWorldAction(std::string line)
 {
@@ -29,7 +30,9 @@ bool GridWorldAction::operator<(const RLActionBase& action) const
 
 void GridWorldAction::Randomize()
 {
-	this ->value = (Direction)(rand() % Direction::DIR_NUM);
+	double dR = rand();
+	int iR = ((int)dR);// % Direction::DIR_NUM;
+	this ->value = (Direction)(iR % Direction::DIR_NUM);
 }
 
 int GridWorldAction::GetValue() const
