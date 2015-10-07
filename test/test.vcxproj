@@ -87,6 +87,8 @@
     <ClCompile Include="GridWorldReward.cpp" />
     <ClCompile Include="GridWorldState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OneDimAction.cpp" />
+    <ClCompile Include="OneDimState.cpp" />
     <ClCompile Include="RLDefaultAction.cpp" />
     <ClCompile Include="RLActionSelectionArgmax.cpp" />
     <ClCompile Include="RLActionSelectionEGreedy.cpp" />
@@ -115,6 +117,10 @@
     <ClInclude Include="GridWorldEnvironment.h" />
     <ClInclude Include="GridWorldReward.h" />
     <ClInclude Include="GridWorldState.h" />
+    <ClInclude Include="OneDimAction.h" />
+    <ClInclude Include="OneDimEnvironment.h" />
+    <ClInclude Include="OneDimReward.h" />
+    <ClInclude Include="OneDimState.h" />
     <ClInclude Include="RLDefaultAction.h" />
     <ClInclude Include="RLActionBase.h" />
     <ClInclude Include="RLActionSelectionArgmax.h" />

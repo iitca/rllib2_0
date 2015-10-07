@@ -67,5 +67,5 @@ void GridWorldState::SetCoordinates(int x, int y)
 
 std::ostream& operator<<(std::ostream &os, const GridWorldState& state)
 {
-	return os << "state(" <<state.GetX() << "," << state.GetY() << ")";
+	return os << "state(" <<state.GetX() << ", " << state.GetY() << ")";
 }

@@ -42,6 +42,12 @@
     <Filter Include="Source Files\GridWorldExperiment">
       <UniqueIdentifier>{d2f016e1-044c-4268-a4c2-8c2483ec0bf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\OneDimExperiment">
+      <UniqueIdentifier>{2dd3d364-d38a-4c23-af1f-a9a9c4c971e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OneDimExperiment">
+      <UniqueIdentifier>{fc0bf89a-fd0e-41f6-9d0a-3094b9efdb0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -124,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="RLResetFSMState.cpp">
       <Filter>Source Files\rllib2_0\RLFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="OneDimAction.cpp">
+      <Filter>Source Files\OneDimExperiment</Filter>
+    </ClCompile>
+    <ClCompile Include="OneDimState.cpp">
+      <Filter>Source Files\OneDimExperiment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +249,18 @@
     </ClInclude>
     <ClInclude Include="RLExitFSMState.h">
       <Filter>Header Files\rllib2_0\RLFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="OneDimAction.h">
+      <Filter>Header Files\OneDimExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="OneDimState.h">
+      <Filter>Header Files\OneDimExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="OneDimReward.h">
+      <Filter>Header Files\OneDimExperiment</Filter>
+    </ClInclude>
+    <ClInclude Include="OneDimEnvironment.h">
+      <Filter>Header Files\OneDimExperiment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

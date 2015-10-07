@@ -42,15 +42,8 @@ namespace RLFSM_NMSPC
 		for (;;)
 		{
 			if (currentFSMState != nullptr){
-				//print out the state name
-				currentFSMState->Print();
-				//execute the actions for the state
-
-				//TO DO:
-				//do function should return input to the next state
+				//execute the state
 				unsigned int t = currentFSMState->Do(this);
-				//then 'data' is fed to the transit function
-				//also a transition table should be more flexible
 				//transit to another state
 				currentFSMState->Transit(this, t);
 			}

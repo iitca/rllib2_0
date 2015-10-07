@@ -42,7 +42,7 @@ namespace RLENTITY_NMSPC
 	template<typename Ty1, typename Ty2>
 	void RLTable<Ty1, Ty2>::Set(RLStateActionBase<Ty1, Ty2> stateAction, double q)
 	{
-		//check if the element exists
+		//check if the stateAction exists in the table
 		if (this->table.count(stateAction))
 			this->table[stateAction] = q;
 		else

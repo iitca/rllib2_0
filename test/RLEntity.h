@@ -35,42 +35,42 @@ namespace RLENTITY_NMSPC
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::ObsrvCurrState()
 	{
-		std::cout << "Observing the current state" << std::endl;
+		//std::cout << "Observing the current state" << std::endl;
 		return rlEnv->GetState();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::SelAction()
 	{
-		std::cout << "Selecting the action" << std::endl;
+		//std::cout << "Selecting the action" << std::endl;
 		return rlAgent->SelAction(rlEnv->GetStoredCurrState());
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::PerfAction()
 	{
-		std::cout << "Performing the action" << std::endl;
+		//std::cout << "Performing the action" << std::endl;
 		return rlEnv->PerformAction(rlAgent->GetStoredAction());
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::ObsrvNextState()
 	{
-		std::cout << "Observing the next state" << std::endl;
+		//std::cout << "Observing the next state" << std::endl;
 		return rlEnv->GetState();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::GetReward()
 	{
-		std::cout << "Getting the reward" << std::endl;
+		//std::cout << "Getting the reward" << std::endl;
 		return rlEnv->GetReward();
 	}
 
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::AdjQ()
 	{
-		std::cout << "Adjusting Q value" << std::endl;
+		//std::cout << "Adjusting Q value" << std::endl;
 		rlAgent->AdjQ(rlEnv->GetStoredPrevState(),
 			rlEnv->GetStoredCurrState(),
 			rlEnv->GetStoredReward());
@@ -81,7 +81,7 @@ namespace RLENTITY_NMSPC
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::Reset()
 	{
-		std::cout << "Reseting....." << std::endl;
+		//std::cout << "Reseting....." << std::endl;
 		//store in a file
 		this->StoreQFile();
 		//reset the experiment
@@ -91,7 +91,7 @@ namespace RLENTITY_NMSPC
 	template<typename Ty1, typename Ty2>
 	unsigned int RLEntity<Ty1, Ty2>::Exit()
 	{
-		std::cout << "Exit" << std::endl;
+		//std::cout << "Exit" << std::endl;
 		return rlEnv->Exit();
 	}
 

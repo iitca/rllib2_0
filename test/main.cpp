@@ -14,7 +14,7 @@ int main()
 {
 	//create our example environment of the size  2x2 with the goal state at x=1, y=1
 	GridWorldEnvironment<GridWorldState, GridWorldAction>* gwEnv = 
-		new GridWorldEnvironment<GridWorldState, GridWorldAction>(2, 2, 1, 1, 10000);
+		new GridWorldEnvironment<GridWorldState, GridWorldAction>(20, 20, 10, 10, 10000);
 
 	//create rl table
 	RLTable<GridWorldState, GridWorldAction>* rlTbl = 
