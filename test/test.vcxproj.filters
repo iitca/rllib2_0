@@ -137,6 +137,9 @@
     <ClCompile Include="OneDimState.cpp">
       <Filter>Source Files\OneDimExperiment</Filter>
     </ClCompile>
+    <ClCompile Include="OneDimReward.cpp">
+      <Filter>Source Files\OneDimExperiment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLFSMState.h">

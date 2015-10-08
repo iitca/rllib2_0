@@ -1,6 +1,6 @@
 #include "OneDimAction.h"
 
-OneDimAction::OneDimAction(std::string line, int _maxVal)
+OneDimAction::OneDimAction(std::string line)
 {
 	int actionStart = line.find("action(") + 7;
 	int actionEnd = 0;
@@ -13,7 +13,6 @@ OneDimAction::OneDimAction(std::string line, int _maxVal)
 			std::istringstream(val) >> this->value;
 		}
 	}
-	this->maxVal = _maxVal;
 }
 
 bool OneDimAction::operator==(RLActionBase& action) const
@@ -29,8 +28,8 @@ bool OneDimAction::operator<(const RLActionBase& action) const
 void OneDimAction::Randomize()
 {
 	double dR = rand();
-	int iR = ((int)dR);
-	this->value = iR % this->maxVal;
+	unsigned int iR = (unsigned int)dR;
+	this->value = iR % (sizeof(unsigned int) * 8);
 }
 
 int OneDimAction::GetValue() const
@@ -41,4 +40,9 @@ int OneDimAction::GetValue() const
 void OneDimAction::SetValue(int _val)
 {
 	this->value = _val;
+}
+
+std::ostream& operator<<(std::ostream &os, const OneDimAction& action)
+{
+	return os << "action(" << action.GetValue() << ")";
 }

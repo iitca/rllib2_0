@@ -7,12 +7,12 @@
 
 using namespace RLENTITY_NMSPC;
 
-class OneDimAction : RLActionBase
+class OneDimAction : public RLActionBase
 {
 public:
-	OneDimAction() : value(0), maxVal(0){};
-	OneDimAction(int _val, int _maxVal) : value(_val), maxVal(_maxVal){};
-	OneDimAction(std::string, int _maxVal);
+	OneDimAction() : value(0){};
+	OneDimAction(int _val) : value(_val){};
+	OneDimAction(std::string);
 	virtual bool operator==(RLActionBase&) const override;
 	virtual bool operator<(const RLActionBase&) const override;
 	virtual void Randomize() override;

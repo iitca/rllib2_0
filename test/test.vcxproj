@@ -88,6 +88,7 @@
     <ClCompile Include="GridWorldState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OneDimAction.cpp" />
+    <ClCompile Include="OneDimReward.cpp" />
     <ClCompile Include="OneDimState.cpp" />
     <ClCompile Include="RLDefaultAction.cpp" />
     <ClCompile Include="RLActionSelectionArgmax.cpp" />
