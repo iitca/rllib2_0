@@ -21,7 +21,6 @@ public:
 private:
 	friend std::ostream& operator<<(std::ostream &os, const OneDimAction& action);
 	int value;
-	int maxVal;
 };
 
 #endif

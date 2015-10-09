@@ -27,9 +27,9 @@ bool OneDimAction::operator<(const RLActionBase& action) const
 
 void OneDimAction::Randomize()
 {
-	double dR = rand();
-	unsigned int iR = (unsigned int)dR;
-	this->value = iR % (sizeof(unsigned int) * 8);
+	int dR = rand();
+	unsigned char iR = (unsigned char)dR;
+	this->value = iR % (sizeof(unsigned char) * 8);
 }
 
 int OneDimAction::GetValue() const

@@ -36,7 +36,7 @@ private:
 template<typename Ty1, typename Ty2>
 OneDimEnvironment<Ty1, Ty2>::OneDimEnvironment(unsigned int episodesNum)
 {
-	this->goalState = new OneDimState(UINT_MAX);
+	this->goalState = new OneDimState(UCHAR_MAX);
 	this->currState = new OneDimState(0);
 	this->prevState = new OneDimState(0);
 	this->reward = nullptr;
@@ -73,10 +73,15 @@ unsigned int OneDimEnvironment<Ty1, Ty2>::GetReward()
 	unsigned int value = this->currState->Get();
 	//frag level
 	double frag = this->GetFragmentation(value);
-	int fragLevel = (int)(this ->GetFragmentation(value) * 100);
-	//store the reward
-	reward->SetValue(fragLevel);
+	//int fragLevel = 15 - (int)(this ->GetFragmentation(value) * 100);
+	if (frag < 0.01)
+		reward->SetValue(10);
+	else
+		reward->SetValue(-10);
 
+	if (*this->currState == *this->prevState)
+		reward->SetValue(-10);
+	
 	//check if the goal state was reached
 	if (*this->currState == *this->goalState)
 		this->goalStateReached = true;
@@ -102,10 +107,10 @@ unsigned int OneDimEnvironment<Ty1, Ty2>::PerformAction(Ty2 action)
 	//save the current state first
 	*(this->prevState) = *(this->currState);
 	//get current value
-	int currVal = this->currState->Get();
+	unsigned int currVal = this->currState->Get();
 	//get the action's value
-	int actionVal = action.GetValue() % sizeof(unsigned int);
-	action.SetValue(actionVal);
+	int actionVal = action.GetValue();// % (sizeof(unsigned int) * 8);
+	//action.SetValue(actionVal);
 	//apply the action
 	currVal |= (1 << actionVal);
 	//store the new state

@@ -1,6 +1,6 @@
 #include "OneDimState.h"
 
-OneDimState::OneDimState(int _val)
+OneDimState::OneDimState(unsigned char _val)
 {
 	this->val = _val;
 }
@@ -20,12 +20,12 @@ OneDimState::OneDimState(std::string line)
 	}
 }
 
-int OneDimState::Get() const
+unsigned char OneDimState::Get() const
 {
 	return this->val;
 }
 
-void OneDimState::Set(int _val)
+void OneDimState::Set(unsigned char _val)
 {
 	this->val = _val;
 }
@@ -47,5 +47,5 @@ bool OneDimState::operator<(const RLStateBase& state) const
 
 std::ostream& operator<<(std::ostream &os, const OneDimState& state)
 {
-	return os << "state(" << state.Get() << ")";
+	return os << "state(" << (int)(state.Get()) << ")";
 }

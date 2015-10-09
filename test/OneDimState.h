@@ -11,16 +11,16 @@ class OneDimState : public RLStateBase
 {
 public:
 	OneDimState(){};
-	OneDimState(int);
+	OneDimState(unsigned char);
 	OneDimState(std::string);
-	int Get() const;
-	void Set(int);
+	unsigned char Get() const;
+	void Set(unsigned char);
 	virtual bool operator==(RLStateBase&) const override;
 	virtual bool operator==(const RLStateBase&) const;
 	virtual bool operator<(const RLStateBase&) const override;
 private:
 	friend std::ostream& operator<<(std::ostream &os, const OneDimState& state);
-	int val;
+	unsigned char val;
 
 };
 
