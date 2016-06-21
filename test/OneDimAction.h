@@ -20,7 +20,7 @@ public:
 	virtual void SetValue(int) override;
 private:
 	friend std::ostream& operator<<(std::ostream &os, const OneDimAction& action);
-	int value;
+	unsigned char value;
 };
 
 #endif

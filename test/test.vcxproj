@@ -83,7 +83,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GridWorldAction.cpp" />
-    <ClCompile Include="GridWorldEnvironment.cpp" />
     <ClCompile Include="GridWorldReward.cpp" />
     <ClCompile Include="GridWorldState.cpp" />
     <ClCompile Include="main.cpp" />

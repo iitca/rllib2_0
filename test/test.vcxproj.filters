@@ -119,9 +119,6 @@
     <ClCompile Include="GridWorldState.cpp">
       <Filter>Source Files\GridWorldExperiment</Filter>
     </ClCompile>
-    <ClCompile Include="GridWorldEnvironment.cpp">
-      <Filter>Source Files\GridWorldExperiment</Filter>
-    </ClCompile>
     <ClCompile Include="GridWorldReward.cpp">
       <Filter>Source Files\GridWorldExperiment</Filter>
     </ClCompile>

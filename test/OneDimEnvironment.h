@@ -30,7 +30,7 @@ private:
 	Ty1* currState;
 	Ty1* prevState;
 	OneDimReward* reward;
-	double GetFragmentation(unsigned int);
+	double GetFragmentation(unsigned char);
 };
 
 template<typename Ty1, typename Ty2>
@@ -70,14 +70,16 @@ unsigned int OneDimEnvironment<Ty1, Ty2>::GetReward()
 	//create reward
 	if (this->reward == nullptr)
 		this->reward = new OneDimReward();
-	unsigned int value = this->currState->Get();
+	unsigned char value = this->currState->Get();
 	//frag level
 	double frag = this->GetFragmentation(value);
-	//int fragLevel = 15 - (int)(this ->GetFragmentation(value) * 100);
-	if (frag < 0.01)
+	//0.9375 - max possible fragmentation
+	int fragLevel = 0.9375*100 - (int)(this ->GetFragmentation(value) * 100);
+	/*if (frag < 0.01)
 		reward->SetValue(10);
 	else
-		reward->SetValue(-10);
+		reward->SetValue(-10);*/
+	reward->SetValue(fragLevel);
 
 	if (*this->currState == *this->prevState)
 		reward->SetValue(-10);
@@ -152,7 +154,7 @@ bool OneDimEnvironment < Ty1, Ty2 >::IsInGoalState()
 }
 
 template<typename Ty1, typename Ty2>
-double OneDimEnvironment < Ty1, Ty2 >::GetFragmentation(unsigned int val)
+double OneDimEnvironment < Ty1, Ty2 >::GetFragmentation(unsigned char val)
 {
 	int free = 0;
 	int freeMax = 0;
